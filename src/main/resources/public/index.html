@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | Industrial Modern</title>
+
+    <!-- Google Fonts: Montserrat para cuerpo, Cinzel para títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/team.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/services.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Fuentes adicionales -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ajuste para ocultar scroll bar y permitir auto-scroll suave -->
+    <style>
+        .slider-row-images {
+            display: flex;          /* ponemos un flex container */
+            flex-wrap: nowrap;      /* sin wrap */
+            overflow-x: hidden;     /* ocultamos la barra */
+            scroll-behavior: smooth;/* para que, si tuvieras controles manuales, fueran suaves */
+        }
+        .slider-row-images .slide-item {
+            flex: 0 0 auto;         /* cada item mantiene su tamaño y no encoge */
+        }
+    </style>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="assets/img/LogoRed.png" alt="Logo" />
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">Menú</button>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main>
+    <!-- HERO SECTION -->
+    <section class="hero fade-in">
+        <div class="hero-slider" id="dynamic-slider"></div>
+        <div class="slider-dots" id="slider-dots"></div>
+        <button class="hero-arrow hero-arrow-left" id="prev-slide">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <button class="hero-arrow hero-arrow-right" id="next-slide">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section class="featured-projects fade-in fullwidth">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="slider-row">
+
+                <div class="slider-row-images" id="row1">
+                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Henbet58"></div></div>
+                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house2.PNG" alt="Henbet58"></div></div>
+                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Henbet58"></div></div>
+                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house2.PNG" alt="Proyecto 4"></div></div>
+                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Proyecto 5"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section fade-in">
+        <div class="container services-container">
+            <button class="view-more" onclick="window.location.href='portfolio.html';">VIEW MORE</button>
+            <h2 class="services-title">SERVICES</h2>
+            <p class="services-subtitle">FROM CONCEPT TO COMPLETION</p>
+            <div class="services-icons">
+                <div class="service-item">
+                    <i class="bi bi-tools icon-service"></i>
+                    <h3>CONSTRUCTION MANAGEMENT</h3>
+                </div>
+                <div class="service-item">
+                    <i class="bi bi-hammer icon-service"></i>
+                    <h3>GENERAL CONTRACTING</h3>
+                </div>
+                <div class="service-item">
+                    <i class="bi bi-building-add icon-service"></i>
+                    <h3>NEW CONSTRUCTION</h3>
+                </div>
+                <div class="service-item">
+                    <i class="bi bi-cone-striped icon-service"></i>
+                    <h3>SITE DEVELOPMENT</h3>
+                </div>
+                <div class="service-item">
+                    <i class="bi bi-house-door icon-service"></i>
+                    <h3>CUSTOM HOUSES</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL (proyectos) -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div class="video-container">
+                <video id="modal-video" controls>
+                    <source id="modal-video-source" src="" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            <p id="modal-location"></p>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer theme-stonewave">
+    <div class="footer-main">
+        <div class="footer-brand">
+            <img src="assets/img/LogoRed.png" alt="StoneWave Logo">
+        </div>
+        <div class="contact-info single">
+            <p><span class="label">ADDRESS:</span> <span class="value">123 Riverbend Rd, Creekside, TX 75001, USA</span></p>
+        </div>
+        <ul class="social-icons">
+            <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-youtube"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>COPYRIGHT © 2025 RODRIGUEZ BONILLA CONSTRUCTION CO. | DESIGN BY CREATIVE STUDIOS</p>
+    </div>
+</footer>
+
+<!-- HEADER BG ON SCROLL -->
+<script>
+    (function() {
+        const header = document.querySelector("header");
+        if (!header) return;
+
+        // parsea "rgb(...)" o "rgba(...)" y devuelve [r,g,b]
+        function parseRGB(str) {
+            const nums = str.match(/\d+/g);
+            return nums ? nums.slice(0,3).map(Number) : [255,255,255];
+        }
+
+        function updateHeaderTextColor() {
+            const bg = getComputedStyle(header).backgroundColor;
+            const [r,g,b] = parseRGB(bg);
+            // luminancia relativa (0 oscuro → 1 claro)
+            const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+            if (lum < 0.5) {
+                header.classList.add("dark-bg");
+                header.classList.remove("light-bg");
+            } else {
+                header.classList.add("light-bg");
+                header.classList.remove("dark-bg");
+            }
+        }
+
+        function onScroll() {
+            const o = Math.min(window.scrollY / 300, 0.9);
+            header.style.backgroundColor = `rgba(0,0,0,${o})`;
+            updateHeaderTextColor();
+        }
+
+        window.addEventListener("scroll", onScroll);
+        // iniciar estado al cargar
+        onScroll();
+    })();
+</script>
+
+<!-- HERO SLIDER JS -->
+<script>
+    const sliderImages = [
+        "assets/Henbet58/GPR_6935.jpg",
+        "assets/Henbet58/GPR_6917.jpg",
+        "assets/Henbet58/GPR_6870.jpg",
+        "assets/Henbet58/GPR_6902.jpg",
+        "assets/Henbet58/GPR_6872.jpg",
+        "assets/Enmag11/GPR03040.jpg",
+        "assets/Enmag11/GPR03159.jpg",
+        "assets/Enmag11/GPR02998.jpg",
+        "assets/Enmag11/GPR03004.jpg",
+        "assets/Enmag11/GPR03033.jpg",
+        "assets/BauruII/A3RE_F003_BAURU II.png",
+        "assets/BauruII/A3RE_F004_BAURU II.png",
+        "assets/BauruII/CONJUNTO.jpg",
+    ];
+    const sliderContainer = document.getElementById("dynamic-slider");
+    const dotsContainer   = document.getElementById("slider-dots");
+    let currentSlide = 0;
+
+    function renderSlides() {
+        sliderContainer.innerHTML = "";
+        dotsContainer  .innerHTML = "";
+
+        sliderImages.forEach((src, i) => {
+            // Extraemos el nombre de la carpeta: la segunda parte de "assets/CARPETA/archivo"
+            const parts = src.split("/");
+            const projectName = parts.length > 1 ? parts[1] : `Proyecto ${i+1}`;
+
+            const slide = document.createElement("div");
+            slide.className = "slide" + (i === 0 ? " active" : "");
+            slide.innerHTML = `
+        <div class="hero-overlay">
+          <h1>${projectName}</h1>
+          <p>Posible ubicacion ${i + 1}?</p>
+        </div>
+        <img class="hero-image" src="${src}" alt="Slide ${i + 1}">
+      `;
+            sliderContainer.appendChild(slide);
+
+            const dot = document.createElement("span");
+            dot.className = "dot" + (i === 0 ? " active" : "");
+            dot.addEventListener("click", () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function goToSlide(idx) {
+        const slides = sliderContainer.querySelectorAll(".slide");
+        const dots   = dotsContainer.querySelectorAll(".dot");
+        slides[currentSlide].classList.remove("active");
+        dots  [currentSlide].classList.remove("active");
+        currentSlide = idx;
+        slides[currentSlide].classList.add("active");
+        dots  [currentSlide].classList.add("active");
+    }
+
+    document.getElementById("prev-slide")
+        .addEventListener("click", () =>
+            goToSlide((currentSlide - 1 + sliderImages.length) % sliderImages.length)
+        );
+
+    document.getElementById("next-slide")
+        .addEventListener("click", () =>
+            goToSlide((currentSlide + 1) % sliderImages.length)
+        );
+
+    renderSlides();
+</script>
+
+
+
+
+
+
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- JS General -->
+<script src="./js/app.js"></script>
+</body>
+</html>

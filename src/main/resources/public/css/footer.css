@@ -1,0 +1,108 @@
+/* ============================= */
+/*  FOOTER THEME: StoneWave      */
+/* ============================= */
+
+.theme-stonewave {
+    background-color: #030303;
+    color: #eee;
+    font-family: 'Cinzel', serif;
+}
+
+/* Contenedor principal en columna y centrado */
+.theme-stonewave .footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    gap: 1.5rem;
+}
+
+/* Logo */
+.theme-stonewave .footer-brand img {
+    max-width: 180px;
+    height: auto;
+}
+
+/* Tagline (si decides mantenerla) */
+.theme-stonewave .footer-brand .tagline {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-top: 0.5rem;
+}
+
+/* Separador de tagline */
+.theme-stonewave .sep {
+    color: #ff6600;
+}
+
+/* Dirección (solo una línea) */
+.theme-stonewave .contact-info.single p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.theme-stonewave .contact-info.single .label {
+    font-weight: bold;
+    color: #eee;
+    margin-right: 0.5rem;
+}
+
+.theme-stonewave .contact-info.single .value {
+    color: #bbb;
+}
+
+/* Íconos sociales centrados */
+.theme-stonewave .social-icons {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.theme-stonewave .social-icons li a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #111;
+    text-align: center;
+    font-size: 1rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.theme-stonewave .social-icons li a ion-icon {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: #ce4242;
+}
+.theme-stonewave .social-icons li a:hover {
+    transform: scale(1.1);
+    background-color: #ff6600;
+    color: #fff;
+}
+
+/* Línea inferior de copyright */
+.theme-stonewave .footer-bottom {
+    border-top: 1px solid #222;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .theme-stonewave .footer-main {
+        padding: 2rem 1rem;
+    }
+    .theme-stonewave .contact-info.single .label,
+    .theme-stonewave .contact-info.single .value {
+        display: block;
+    }
+}

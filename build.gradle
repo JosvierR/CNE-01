@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+
+    id 'application'
+}
+
+group = 'edu.pucmm'
+version = '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencias de tu aplicación (Javalin, MongoDB, JWT, etc.)
+    implementation 'io.javalin:javalin:5.6.1'
+    implementation("org.slf4j:slf4j-simple:2.0.7")
+
+    // Dependencias para test
+    testImplementation 'junit:junit:4.13.2'
+}
+
+
+
+application {
+    // Indica la clase principal existente para tu servidor REST.
+    mainClass = 'edu.pucmm.Main'
+}
