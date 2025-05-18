@@ -42,24 +42,30 @@
 </head>
 <body>
 <!-- HEADER -->
-<header>
-    <div class="container header-container">
-        <div class="logo">
-            <img src="assets/img/LogoRed.png" alt="Logo" />
+<header class="dark-header">
+    <div class="container">
+        <div class="nav-content">
+            <a href="index.html" class="minimal-logo">
+                <img src="assets/img/LogoRed.png" alt="Logo" class="original-logo">
+            </a>
+
+            <nav class="slim-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-item active">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-item">Servicios</a></li>
+                    <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+                    <li><a href="contacto.html" class="nav-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger-btn">
+                <div class="micro-bar"></div>
+                <div class="micro-bar"></div>
+            </button>
         </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle">Menú</button>
     </div>
 </header>
-
 <!-- MAIN -->
 <main>
     <!-- HERO SECTION -->
@@ -67,25 +73,82 @@
         <div class="hero-slider" id="dynamic-slider"></div>
         <div class="slider-dots" id="slider-dots"></div>
         <button class="hero-arrow hero-arrow-left" id="prev-slide">
-            <ion-icon name="chevron-back-outline"></ion-icon>
+            <span class="arrow-text">←</span>
         </button>
         <button class="hero-arrow hero-arrow-right" id="next-slide">
-            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <span class="arrow-text">→</span>
         </button>
     </section>
-
     <!-- FEATURED PROJECTS SECTION -->
-    <section class="featured-projects fade-in fullwidth">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="slider-row">
+    <section class="featured-projects fade-in">
+        <h2 class="projects-title">Proyectos Destacados</h2>
+        <div class="slider-row">
+            <!-- Controles -->
+            <div class="slider-controls">
+                <button class="arrow arrow-left">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </button>
+                <button class="arrow arrow-right">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+            </div>
 
-                <div class="slider-row-images" id="row1">
-                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Henbet58"></div></div>
-                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house2.PNG" alt="Henbet58"></div></div>
-                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Henbet58"></div></div>
-                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house2.PNG" alt="Proyecto 4"></div></div>
-                    <div class="slide-item"><div class="project-card"><img src="/assets/img/house.PNG" alt="Proyecto 5"></div></div>
+            <!-- Carrusel -->
+            <div class="slider-row-images" id="row1">
+                <!-- Proyecto 1 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Casa Moderna</h3></div>
+                    <div class="project-image"><img src="assets/img/house1.png" alt="Casa moderna"></div>
+                    <p class="project-description">Diseño contemporáneo con espacios abiertos</p>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Villa Minimalista</h3></div>
+                    <div class="project-image"><img src="assets/img/house2.png" alt="Villa minimalista"></div>
+                    <p class="project-description">Líneas puras y materiales naturales</p>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Loft Urbano</h3></div>
+                    <div class="project-image"><img src="assets/img/house3.png" alt="Loft urbano"></div>
+                    <p class="project-description">Espacio diáfano en el corazón de la ciudad</p>
+                </div>
+
+                <!-- Proyecto 4 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Casa de Playa</h3></div>
+                    <div class="project-image"><img src="assets/img/house4.png" alt="Casa de playa"></div>
+                    <p class="project-description">Vista directa al mar y materiales resistentes</p>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Cabaña Rural</h3></div>
+                    <div class="project-image"><img src="assets/img/house5.png" alt="Cabaña rural"></div>
+                    <p class="project-description">Acogedora y en armonía con la naturaleza</p>
+                </div>
+
+                <!-- Proyecto 6 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Ático Panorámico</h3></div>
+                    <div class="project-image"><img src="assets/img/house6.png" alt="Ático panorámico"></div>
+                    <p class="project-description">Terraza amplia con vistas de 360°</p>
+                </div>
+
+                <!-- Proyecto 7 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Casa Prefabricada</h3></div>
+                    <div class="project-image"><img src="assets/img/house7.png" alt="Casa prefabricada"></div>
+                    <p class="project-description">Montaje rápido, diseño modular</p>
+                </div>
+
+                <!-- Proyecto 8 -->
+                <div class="project-item slide-item">
+                    <div class="project-header"><h3 class="project-name">Residencia Jam House</h3></div>
+                    <div class="project-image"><img src="assets/img/house8.png" alt="Residencia Jam House"></div>
+                    <p class="project-description">Estilo industrial con toques artísticos</p>
                 </div>
             </div>
         </div>
@@ -269,9 +332,6 @@
 
     renderSlides();
 </script>
-
-
-
 
 
 

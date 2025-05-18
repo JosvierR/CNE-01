@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* --- Menú móvil --- */
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('.nav-list');
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
+    const menuButton = document.querySelector('.hamburger-btn');
+    const nav = document.querySelector('.slim-nav');
+    if (menuButton && nav) {
+        menuButton.addEventListener('click', () => {
+            menuButton.classList.toggle('active');
+            nav.classList.toggle('active');
         });
     }
 
@@ -37,55 +38,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
     fadeElements.forEach(item => fadeObserver.observe(item));
 
-    /* --- Lógica para sliders multifila (controles con flechas) --- */
-    document.querySelectorAll('.left-arrow').forEach(arrow => {
-        arrow.addEventListener('click', () => {
-            const row = document.getElementById(arrow.dataset.target);
-            if (row) row.scrollBy({ left: -300, behavior: 'smooth' });
+    /* --- Lógica CORREGIDA para sliders --- */
+    document.querySelectorAll('.slider-row').forEach(row => {
+        const container = row.querySelector('.slider-row-images');
+        const btnPrev = row.querySelector('.arrow-left');
+        const btnNext = row.querySelector('.arrow-right');
+        if (!container || !btnPrev || !btnNext) return;
+
+        const getScrollAmount = () => {
+            const firstItem = container.querySelector('.slide-item');
+            return firstItem ? firstItem.offsetWidth * 3 : container.offsetWidth;
+        };
+
+        btnPrev.addEventListener('click', () => {
+            container.scrollBy({
+                left: -getScrollAmount(),
+                behavior: 'smooth'
+            });
         });
-    });
-    document.querySelectorAll('.right-arrow').forEach(arrow => {
-        arrow.addEventListener('click', () => {
-            const row = document.getElementById(arrow.dataset.target);
-            if (row) row.scrollBy({ left: 300, behavior: 'smooth' });
+
+        btnNext.addEventListener('click', () => {
+            container.scrollBy({
+                left: getScrollAmount(),
+                behavior: 'smooth'
+            });
         });
     });
 
-    /* --- Auto-scroll continuo para Projects (fila row1) --- */
-    function setupContinuousScroll(sliderRowId, speed = 0.5) {
-        const row = document.getElementById(sliderRowId);
-        if (!row) return;
-        // duplicamos el contenido para crear un bucle infinito
-        row.innerHTML += row.innerHTML;
-        let curSpeed = speed;
-        row.addEventListener('mouseenter', () => curSpeed = speed / 5);
-        row.addEventListener('mouseleave', () => curSpeed = speed);
-        (function step() {
-            row.scrollLeft += curSpeed;
-            // cuando llegamos a la mitad, reiniciamos al inicio
-            if (row.scrollLeft >= row.scrollWidth / 2) {
-                row.scrollLeft = 0;
-            }
-            requestAnimationFrame(step);
-        })();
-    }
-    // Solo aplicamos al contenedor de id="row1"
-    setupContinuousScroll('row1', 0.5);
-
-    /* --- Modal para featured projects --- */
+    /* --- Modal para proyectos --- */
     const modal = document.getElementById('project-modal');
     if (modal) {
         const titleEl = document.getElementById('modal-title');
-        const descEl  = document.getElementById('modal-description');
-        const vid     = document.getElementById('modal-video');
-        const src     = document.getElementById('modal-video-source');
-        const locEl   = document.getElementById('modal-location');
-        const close   = modal.querySelector('.close');
+        const descEl = document.getElementById('modal-description');
+        const vid = document.getElementById('modal-video');
+        const src = document.getElementById('modal-video-source');
+        const locEl = document.getElementById('modal-location');
+        const close = modal.querySelector('.close');
 
         function openModal(item) {
-            titleEl.textContent = item.dataset.title       || 'Sin título';
-            descEl.textContent  = item.dataset.description || 'Sin descripción';
-            locEl.textContent   = item.dataset.location    || 'Sin ubicación';
+            document.body.classList.add('modal-active');
+            titleEl.textContent = item.dataset.title || 'Sin título';
+            descEl.textContent = item.dataset.description || 'Sin descripción';
+            locEl.textContent = item.dataset.location || 'Sin ubicación';
+
             if (item.dataset.video) {
                 src.src = item.dataset.video;
                 vid.load();
@@ -93,19 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 vid.style.display = 'none';
             }
-            modal.style.display = 'block';
+            modal.classList.add('active');
         }
-        function closeModal() { modal.style.display = 'none'; }
 
-        if (close) close.addEventListener('click', closeModal);
-        window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        function closeModal() {
+            document.body.classList.remove('modal-active');
+            modal.classList.remove('active');
+        }
+
+        close.addEventListener('click', closeModal);
+        window.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
 
         document.querySelectorAll('.slider-row-images').forEach(container => {
             container.addEventListener('click', e => {
-                let el = e.target;
-                while (el && !el.classList.contains('slide-item')) {
-                    el = el.parentElement;
-                }
+                let el = e.target.closest('.slide-item');
                 if (el) openModal(el);
             });
         });
@@ -142,94 +140,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSlider = document.querySelector('.hero-slider');
     if (heroSlider) {
         const slides = heroSlider.querySelectorAll('.slide');
-        const dots   = document.querySelectorAll('.slider-dots .dot');
+        const dots = document.querySelectorAll('.slider-dots .dot');
         let idx = 0, total = slides.length;
 
         function show(i) {
             slides.forEach((s, j) => s.classList.toggle('active', j === i));
-            dots.forEach((d, j)   => d.classList.toggle('active', j === i));
+            dots.forEach((d, j) => d.classList.toggle('active', j === i));
         }
-        let iv = setInterval(() => { idx = (idx + 1) % total; show(idx); }, 5000);
+
+        let iv = setInterval(() => {
+            idx = (idx + 1) % total;
+            show(idx);
+        }, 5000);
 
         dots.forEach((d, i) => d.addEventListener('click', () => {
-            clearInterval(iv); idx = i; show(i);
-            iv = setInterval(() => { idx = (idx + 1) % total; show(idx); }, 5000);
+            clearInterval(iv);
+            idx = i;
+            show(i);
+            iv = setInterval(() => {
+                idx = (idx + 1) % total;
+                show(idx);
+            }, 5000);
         }));
 
-        const leftA  = document.querySelector('.hero-arrow-left');
+        const leftA = document.querySelector('.hero-arrow-left');
         const rightA = document.querySelector('.hero-arrow-right');
         if (leftA && rightA) {
             leftA.addEventListener('click', () => {
                 clearInterval(iv);
                 idx = (idx - 1 + total) % total;
                 show(idx);
-                iv = setInterval(() => { idx = (idx + 1) % total; show(idx); }, 5000);
+                iv = setInterval(() => {
+                    idx = (idx + 1) % total;
+                    show(idx);
+                }, 5000);
             });
             rightA.addEventListener('click', () => {
                 clearInterval(iv);
                 idx = (idx + 1) % total;
                 show(idx);
-                iv = setInterval(() => { idx = (idx + 1) % total; show(idx); }, 5000);
+                iv = setInterval(() => {
+                    idx = (idx + 1) % total;
+                    show(idx);
+                }, 5000);
             });
         }
-        heroSlider.addEventListener('click', () => {
-            const active = heroSlider.querySelector('.slide.active');
-            if (active?.dataset.link) window.location.href = active.dataset.link;
-        });
     }
 
-    /* --- Modal portfolio --- */
-    const pmModal = document.getElementById('portfolio-modal');
-    if (pmModal) {
-        const pmTitle = document.getElementById('portfolio-modal-title');
-        const pmDesc  = document.getElementById('portfolio-modal-description');
-        const pmClose = pmModal.querySelector('.close');
-
-        document.querySelectorAll('.portfolio-item-apple').forEach(item => {
-            item.addEventListener('click', () => {
-                pmTitle.textContent = item.dataset.title || 'Sin título';
-                pmDesc.textContent  = item.dataset.description || 'Sin descripción';
-                pmModal.style.display = 'block';
-            });
-        });
-        if (pmClose) pmClose.addEventListener('click', () => pmModal.style.display = 'none');
-        window.addEventListener('click', e => { if (e.target === pmModal) pmModal.style.display = 'none'; });
-    }
-
-    /* --- Envío del formulario de contacto vía Fetch (EmailJS API v1.0) --- */
+    /* --- Formulario de contacto --- */
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const params = {
-                service_id:   'service_r1yyn21',
-                template_id:  'template_qkhrmnq',
-                user_id:      'AwfMFTpcQlKMoFh6J',
+                service_id: 'service_r1yyn21',
+                template_id: 'template_qkhrmnq',
+                user_id: 'AwfMFTpcQlKMoFh6J',
                 template_params: {
-                    user_name:  this.user_name.value,
+                    user_name: this.user_name.value,
                     user_email: this.user_email.value,
-                    message:    this.message.value
+                    message: this.message.value
                 }
             };
+
             fetch('https://api.emailjs.com/api/v1.0/email/send', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(params)
             })
-                .then(res => {
-                    if (res.ok) {
-                        alert('✅ Mensaje enviado correctamente.');
-                        contactForm.reset();
-                    } else {
-                        return res.text().then(text => Promise.reject(text));
-                    }
-                })
-                .catch(err => {
-                    console.error('Error al enviar:', err);
-                    alert('❌ Error al enviar, inténtalo nuevamente.');
-                });
+            .then(res => {
+                if (res.ok) {
+                    alert('Mensaje enviado correctamente.');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+            })
+            .catch(err => {
+                console.error('Error al enviar:', err);
+                alert('Error al enviar, inténtalo nuevamente.');
+            });
         });
     }
 
-    console.log('app.js cargado correctamente');
+    console.log('✅ app.js cargado correctamente');
 });

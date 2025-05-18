@@ -1,6 +1,7 @@
+/* SERVICES SECTION */
 .services-section {
-    margin-top: 120px;
-    padding: 4rem 1rem;
+    margin-top: 0;             /* elimina el gran salto */
+    padding: 2rem 1rem;        /* reduce espacio arriba y abajo */
     background-color: #000;
     text-align: center;
 }
@@ -17,7 +18,7 @@
     border: 1px solid #fff;
     padding: 0.7rem 1.2rem;
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;       /* acercado al título */
     text-transform: uppercase;
     transition: all 0.3s;
     font-weight: 600;
@@ -31,12 +32,12 @@
     font-size: 2.8rem;
     color: #fff;
     font-family: 'Cinzel', serif;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;     /* menor separación */
 }
 .services-subtitle {
     font-size: 1.2rem;
     color: #aaa;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;     /* menor separación */
 }
 
 .services-icons {
@@ -72,6 +73,7 @@
 .fade-in.animated {
     opacity: 1;
 }
+
 /* ============================= */
 /*     SECCIÓN SERVICIOS REVAMP  */
 /* ============================= */
@@ -166,4 +168,3 @@
         grid-template-columns: 1fr;
     }
 }
-
