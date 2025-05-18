@@ -11,17 +11,14 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/hero.css">  <!-- Incluye los estilos del hero y contador -->
+    <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/portfolio.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/animations.css">
-
-    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
 <!-- HEADER -->
@@ -31,17 +28,15 @@
             <a href="index.html" class="minimal-logo">
                 <img src="assets/img/LogoRed.png" alt="Logo" class="original-logo">
             </a>
-
             <nav class="slim-nav">
                 <ul class="nav-grid">
-                    <li><a href="index.html" class="nav-item active">Inicio</a></li>
+                    <li><a href="index.html" class="nav-item">Inicio</a></li>
                     <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
                     <li><a href="servicios.html" class="nav-item">Servicios</a></li>
                     <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
                     <li><a href="contacto.html" class="nav-item">Contacto</a></li>
                 </ul>
             </nav>
-
             <button class="hamburger-btn">
                 <div class="micro-bar"></div>
                 <div class="micro-bar"></div>
@@ -50,7 +45,7 @@
     </div>
 </header>
 
-<!-- SECCIÓN HERO COUNTER (Contador elegante) -->
+<!-- SECCIÓN HERO COUNTER -->
 <section class="hero-counter">
     <div class="hero-counter-overlay">
         <div class="container counters-container">
@@ -70,13 +65,11 @@
     </div>
 </section>
 
-
 <!-- SECCIÓN TEAM -->
 <section class="team-section fade-in">
     <div class="container">
         <h2 class="team-title">TEAM</h2>
         <div class="team-grid">
-            <!-- Tarjeta para Xavier Rodríguez -->
             <div class="team-member">
                 <img src="/assets/img/xavier.jpg" alt="Xavier Rodríguez">
                 <h3>XAVIER RODRIGUEZ</h3>
@@ -84,7 +77,6 @@
                     Xavier es el director general y cabeza estratégica de la empresa, con un fuerte enfoque en la innovación y calidad en cada proyecto.
                 </p>
             </div>
-            <!-- Tarjeta para José Rodríguez -->
             <div class="team-member">
                 <img src="/assets/img/jose.jpg" alt="José Rodríguez">
                 <h3>JOSE RODRIGUEZ</h3>
@@ -121,17 +113,18 @@
     </div>
 </footer>
 
-
 <!-- Ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Contador animado -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const counters = document.querySelectorAll(".counter-value");
 
         counters.forEach(counter => {
             const target = +counter.getAttribute("data-target");
-            const speed = 200; // menor = más rápido
+            const speed = 200;
 
             const updateCount = () => {
                 const current = +counter.innerText;
@@ -150,6 +143,22 @@
     });
 </script>
 
+<!-- SCRIPT para marcar el menú activo según la URL -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname.split("/").pop();
+        const navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === path) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
 
 <script src="js/app.js"></script>
 </body>

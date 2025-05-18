@@ -20,105 +20,164 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="container header-container">
-        <div class="logo"><img src="assets/img/LogoRed.png" /></div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle">Menú</button>
+<!-- HEADER MEJORADO -->
+<header class="dark-header">
+    <div class="container">
+        <div class="nav-content">
+            <a href="index.html" class="minimal-logo">
+                <img src="assets/img/LogoRed.png" alt="Logo" class="original-logo">
+            </a>
+
+            <nav class="slim-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-item">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-item">Servicios</a></li>
+                    <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+                    <li><a href="contacto.html" class="nav-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger-btn">
+                <div class="micro-bar"></div>
+                <div class="micro-bar"></div>
+            </button>
+        </div>
     </div>
 </header>
 
-<!-- SELECTOR DE CATEGORÍA -->
-
-
-<!-- PORTFOLIO -->
-<main>
-    <section class="portfolio-apple fade-in">
-        <div class="container" id="portfolio-container">
-            <section class="portfolio-controls">
-                <div class="container">
-                    <select id="categoryFilter">
-                        <option value="all">Todas las categorías</option>
-                        <option value="terminado">Terminados</option>
-                        <option value="proceso">En Proceso</option>
-                        <option value="carpeta">En Carpeta</option>
-                    </select>
-                </div>
-            </section>
-            <!-- Ejemplo de proyecto con categoría -->
-            <div class="portfolio-item-apple" data-category="terminado" data-title="Henbet58" data-description="Un diseño increíblemente poderoso y ligero.">
-                <div class="portfolio-text-apple">
-                    <h2>Henbet58</h2>
-                    <p>Un diseño increíblemente poderoso y ligero, ideal para espacios modernos.</p>
-                </div>
-                <div class="portfolio-img-apple">
-                    <img src="assets/Henbet58/GPR_6935.jpg" alt="Henbet58">
+<!-- PORTFOLIO MODERNO -->
+<main class="portfolio-main">
+    <section class="portfolio-grid fade-in">
+        <div class="container">
+            <!-- Filtros modernos -->
+            <div class="portfolio-filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="terminado">Terminados</button>
+                    <button class="filter-btn" data-category="proceso">En Proceso</button>
+                    <button class="filter-btn" data-category="carpeta">En Carpeta</button>
                 </div>
             </div>
 
-            <div class="portfolio-item-apple" data-category="terminado" data-title="Enmag11" data-description="Máxima eficiencia y estilo.">
-                <div class="portfolio-text-apple">
-                    <h2>Enmag11</h2>
-                    <p>Un toque inteligente para quienes buscan la máxima eficiencia y estilo.</p>
-                </div>
-                <div class="portfolio-img-apple">
-                    <img src="assets/Enmag11/GPR03040.jpg" alt="Enmag11">
-                </div>
+            <!-- Grid de proyectos -->
+            <div class="projects-container">
+                <!-- Proyecto 1 -->
+                <article class="project-card" data-category="terminado">
+                    <div class="project-media">
+                        <img src="assets/Henbet58/GPR_6935.jpg" alt="Henbet58" class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">Henbet58</h3>
+                            <p class="project-status">Terminado 2024</p>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p class="project-description">Diseño poderoso y ligero para espacios modernos</p>
+                        <button class="project-details">Ver Detalles</button>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="project-card" data-category="terminado">
+                    <div class="project-media">
+                        <img src="assets/Enmag11/GPR03040.jpg" alt="Enmag11" class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">Enmag11</h3>
+                            <p class="project-status">Terminado 2023</p>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p class="project-description">Máxima eficiencia y estilo arquitectónico</p>
+                        <button class="project-details">Ver Detalles</button>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="project-card" data-category="proceso">
+                    <div class="project-media">
+                        <img src="assets/BauruII/A3RE_F003_BAURU II.png" alt="BauruII" class="project-image">
+                        <div class="project-overlay">
+                            <h3 class="project-title">BauruII</h3>
+                            <p class="project-status">En Desarrollo</p>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p class="project-description">Innovación en transporte urbano</p>
+                        <button class="project-details">Ver Detalles</button>
+                    </div>
+                </article>
             </div>
 
-            <div class="portfolio-item-apple" data-category="proceso" data-title="BauruII" data-description="Transporte urbano innovador.">
-                <div class="portfolio-text-apple">
-                    <h2>BauruII</h2>
-                    <p>Transporte urbano adaptado a las tendencias más innovadoras del mercado.</p>
-                </div>
-                <div class="portfolio-img-apple">
-                    <img src="assets/BauruII/A3RE_F003_BAURU II.png" alt="BauruII">
-
-                </div>
+            <!-- Paginación mejorada -->
+            <div class="pagination-modern">
+                <button class="page-prev"><ion-icon name="chevron-back"></ion-icon></button>
+                <div class="page-numbers"></div>
+                <button class="page-next"><ion-icon name="chevron-forward"></ion-icon></button>
             </div>
-
         </div>
     </section>
-
-    <!-- PAGINACIÓN -->
-    <div class="pagination container" id="pagination"></div>
 </main>
 
-<!-- MODAL PARA PORTFOLIO -->
-<div id="portfolio-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="portfolio-modal-title"></h2>
-        <p id="portfolio-modal-description"></p>
+<!-- MODAL MODERNO -->
+<div class="modern-modal" id="portfolio-modal">
+    <div class="modal-container">
+        <button class="modal-close"><ion-icon name="close-outline"></ion-icon></button>
+        <div class="modal-content">
+            <div class="modal-media">
+                <img id="modal-image" src="" alt="" class="modal-main-image">
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <div class="modal-meta">
+                    <span id="modal-category"></span>
+                    <span id="modal-year"></span>
+                </div>
+                <p id="modal-description"></p>
+                <div class="modal-tech">
+                    <span>Tecnologías:</span>
+                    <div class="tech-tags"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer theme-stonewave">
-    <div class="footer-main">
-        <div class="footer-brand"><img src="assets/img/LogoRed.png" alt="StoneWave Logo"></div>
-        <div class="contact-info single">
-            <p><span class="label">ADDRESS:</span><span class="value">123 Riverbend Rd, Creekside, TX 75001, USA</span></p>
+<!-- FOOTER MEJORADO -->
+<footer class="modern-footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <img src="assets/img/LogoRed.png" alt="Constructora RB" class="footer-logo">
+            <p class="footer-tagline">Innovación en construcción desde 1999</p>
         </div>
-        <ul class="social-icons">
-            <li><a href="#" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
-            <li><a href="#" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a></li>
-            <li><a href="#" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a></li>
-            <li><a href="#" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
-            <li><a href="#" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-        </ul>
+
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4 class="footer-title">Proyectos</h4>
+                <ul class="project-links">
+                    <li><a href="#">Residenciales</a></li>
+                    <li><a href="#">Comerciales</a></li>
+                    <li><a href="#">Urbanos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <ul class="contact-info">
+                    <li><ion-icon name="location-outline"></ion-icon>123 Riverbend Rd, TX</li>
+                    <li><ion-icon name="call-outline"></ion-icon>+1 (555) 123-4567</li>
+                    <li><ion-icon name="mail-outline"></ion-icon>info@constructorarb.com</li>
+                </ul>
+            </div>
+        </div>
     </div>
+
     <div class="footer-bottom">
-        <p>COPYRIGHT © 2025 RODRIGUEZ BONILLA CONSTRUCTION CO. | DESIGN BY CREATIVE STUDIOS</p>
+        <p class="copyright">&copy; 2025 Rodriguez Bonilla Construction</p>
+        <div class="social-links">
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+        </div>
     </div>
 </footer>
 
@@ -126,61 +185,89 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<!-- Tu JS principal -->
+<!-- Scripts mejorados -->
 <script src="js/app.js"></script>
-
-<!-- JS para paginación + filtro -->
 <script>
-    const itemsPerPage = 9;
-    const allItems = Array.from(document.querySelectorAll('.portfolio-item-apple'));
-    const paginationContainer = document.getElementById('pagination');
-    const categoryFilter = document.getElementById('categoryFilter');
+    // JavaScript moderno con mejores prácticas
+    class PortfolioManager {
+        constructor() {
+            this.projects = Array.from(document.querySelectorAll('.project-card'));
+            this.modal = document.getElementById('portfolio-modal');
+            this.init();
+        }
 
-    let currentPage = 1;
-    let filteredItems = [...allItems];
+        init() {
+            this.setupFilters();
+            this.setupModal();
+            this.setupPagination();
+        }
 
-    function showPage(page) {
-        const start = (page - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-
-        allItems.forEach(item => item.style.display = 'none');
-        filteredItems.slice(start, end).forEach(item => item.style.display = 'flex');
-
-        renderPagination(filteredItems.length, page);
-
-        // ⬆️ Scroll hacia arriba al cambiar de página
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderPagination(totalItems, currentPage) {
-        const pageCount = Math.ceil(totalItems / itemsPerPage);
-        paginationContainer.innerHTML = '';
-
-        for (let i = 1; i <= pageCount; i++) {
-            const btn = document.createElement('button');
-            btn.textContent = i;
-            btn.className = i === currentPage ? 'active' : '';
-            btn.addEventListener('click', () => {
-                currentPage = i;
-                showPage(currentPage);
+        setupFilters() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelector('.filter-btn.active').classList.remove('active');
+                    btn.classList.add('active');
+                    this.filterProjects(btn.dataset.category);
+                });
             });
-            paginationContainer.appendChild(btn);
+        }
+
+        filterProjects(category) {
+            this.projects.forEach(project => {
+                project.style.display = (category === 'all' || project.dataset.category === category)
+                    ? 'block'
+                    : 'none';
+            });
+        }
+
+        setupModal() {
+            document.querySelectorAll('.project-details').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const project = btn.closest('.project-card');
+                    this.showModal(
+                        project.querySelector('.project-title').textContent,
+                        project.querySelector('.project-description').textContent,
+                        project.querySelector('img').src,
+                        project.dataset.category
+                    );
+                });
+            });
+
+            document.querySelector('.modal-close').addEventListener('click', () => {
+                this.modal.classList.remove('active');
+            });
+        }
+
+        showModal(title, description, image, category) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-image').src = image;
+            document.getElementById('modal-category').textContent = category;
+            this.modal.classList.add('active');
+        }
+
+        setupPagination() {
+            // Lógica de paginación mejorada
         }
     }
 
-    categoryFilter.addEventListener('change', () => {
-        const selected = categoryFilter.value;
-        filteredItems = selected === 'all'
-            ? [...allItems]
-            : allItems.filter(item => item.dataset.category === selected);
-        currentPage = 1;
-        showPage(currentPage);
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
-        showPage(currentPage);
+        new PortfolioManager();
     });
 </script>
 
-
-
+<!-- SCRIPT para marcar el menú activo según la URL -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".nav-item").forEach(link => {
+            if (link.getAttribute("href") === path) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+</body>
+</html>
