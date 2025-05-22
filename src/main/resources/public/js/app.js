@@ -223,5 +223,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* --- Flip cards en sección de proyectos --- */
+    document.querySelectorAll('.card-container').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+
     console.log('✅ app.js cargado correctamente');
 });
