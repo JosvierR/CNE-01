@@ -4,12 +4,13 @@
 .hero {
     position: relative;
     height: 100vh;
+    padding-top: 60px; /* ✅ Para dejar espacio al header fijo */
     background: #000;
     overflow: hidden;
 }
 
 .hero-slider {
-    position: absolute;
+    position: relative; /* ✅ antes era absolute, ahora respeta padding */
     width: 100%;
     height: 100%;
 }
@@ -26,11 +27,31 @@
     opacity: 1;
 }
 
-.hero-slider .slide img {
+.hero-slider .slide img,
+.hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
+}
+
+/* ✅ NUEVO: capa para mostrar el nombre encima de la imagen */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 1rem;
 }
 
 /* ====================
@@ -91,7 +112,7 @@
    CONTADORES LIMPIOS
 ==================== */
 .hero-counter {
-    margin-top: 60px;   /* espacio bajo el header */
+    margin-top: 60px;
     background: #f7f7f7;
     padding: 60px 0;
 }
@@ -107,7 +128,7 @@
 .counter-box {
     text-align: center;
     padding: 25px;
-    background: #000;               /* fondo negro */
+    background: #000;
     border-radius: 12px;
     width: 200px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -116,13 +137,13 @@
 .counter-value {
     font-size: 3rem;
     font-weight: 600;
-    color: #B22222;                 /* texto rojo monocromático */
+    color: #B22222;
     margin-bottom: 8px;
     font-family: 'Inter', sans-serif;
 }
 
 .counter-box p {
-    color: #B22222;                 /* texto rojo monocromático */
+    color: #B22222;
     font-size: 1rem;
 }
 

@@ -31,6 +31,30 @@
     padding: 0 2rem;
 }
 
+/* Carrusel de tarjetas */
+.slider-row-images {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* ✅ Estabilidad vertical */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 0;
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slider-row-images::-webkit-scrollbar {
+    height: 6px;
+}
+
+.slider-row-images::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
 /* Tarjetas con efecto 3D mejorado */
 .card-container {
     perspective: 1200px;
@@ -48,6 +72,7 @@
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     cursor: pointer;
+    transform-origin: center center; /* ✅ Eje de rotación centrado */
 }
 
 .card-container:hover .card-flip {
@@ -57,6 +82,8 @@
 .card-front,
 .card-back {
     position: absolute;
+    top: 0;      /* ✅ Estabilidad vertical */
+    left: 0;     /* ✅ Estabilidad horizontal */
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -69,28 +96,60 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Frente de la tarjeta */
+/* Frente de la tarjeta - Imagen completa */
 .card-front {
     background: #111;
     transform-style: preserve-3d;
+    position: relative;
 }
 
 .card-front img {
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
     filter: grayscale(20%);
     transition: transform 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .card-front h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: var(--text);
-    margin: 1.5rem 0;
-    padding: 0 1rem;
+    margin: 0;
+    padding: 1.5rem;
     text-align: center;
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.card-container:hover .card-front h3 {
+    color: var(--primary);
+    background: linear-gradient(180deg, transparent 0%, rgba(17,17,17,0.9) 100%);
+    padding-bottom: 2rem;
+}
+
+.card-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
     z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.card-container:hover .card-front::after {
+    opacity: 0.8;
 }
 
 /* Parte trasera con efecto vidrio */
@@ -126,11 +185,7 @@
     margin-bottom: 1.5rem;
 }
 
-/* Efecto hover y detalles */
-.card-container:hover .card-front img {
-    transform: scale(1.05);
-}
-
+/* Efecto borde animado */
 .card-back::before {
     content: '';
     position: absolute;
@@ -157,11 +212,37 @@
 }
 
 /* Flechas mejoradas */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 1rem;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slider-row:hover .slider-controls {
+    opacity: 1;
+}
+
 .slider-controls .arrow {
+    pointer-events: auto;
     background: rgba(17,17,17,0.9);
     border: 1px solid var(--primary);
+    color: #fff;
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     backdrop-filter: blur(4px);
     transition: all 0.3s ease;
 }
@@ -183,8 +264,9 @@
         margin: 0 10px;
     }
 
-    .card-front img {
-        height: 240px;
+    .card-front h3 {
+        font-size: 1.4rem;
+        padding: 1rem;
     }
 
     .card-back {
@@ -194,26 +276,8 @@
     .projects-title {
         font-size: 2rem;
     }
-}
-/* Centrado de las cartas en el carrusel */
-.slider-row-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    padding: 1rem 0;
-    gap: 2rem;
-    max-width: 100%;
-    margin: 0 auto;
-}
 
-.slider-row-images::-webkit-scrollbar {
-    height: 6px;
-}
-.slider-row-images::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    .slider-controls {
+        display: none;
+    }
 }
