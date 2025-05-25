@@ -58,6 +58,13 @@
     padding: 0 0.5rem;
 }
 
+.team-media {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #bbb;
+    padding: 0 0.5rem;
+}
+
 @media (max-width: 768px) {
     .team-title {
         font-size: 2.2rem;
