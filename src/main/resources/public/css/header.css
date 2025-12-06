@@ -1,77 +1,124 @@
 :root {
-    --primary: #FF4D5A;  /* Color rojo principal */
-    --bg: #000000;       /* Fondo negro */
-    --text: #FFFFFF;     /* Texto blanco */
+    --primary: #FF4D5A;
+    --bg: #000000;
+    --text: #FFFFFF;
     --border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(0, 0, 0, 0.85);
+    --glow: 0 0 20px rgba(255, 77, 90, 0.3);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --font-primary: 'Outfit', sans-serif;
 }
+
+/* Añade esto al head del HTML */
+/* <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> */
 
 .dark-header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--bg);
+    background: var(--glass-bg);
     border-bottom: var(--border);
-    height: 60px;
+    height: 80px;
     display: flex;
     align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: var(--transition);
+    font-family: var(--font-primary);
+}
+
+.dark-header.scrolled {
+    height: 70px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 100%;
+    position: relative;
 }
 
 .original-logo {
-    width: 100px; /* Ajusta según el tamaño real de tu logo */
+    width: 120px;
     height: auto;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
+    filter: brightness(1.1);
+    position: relative;
+    z-index: 1001;
 }
 
-/* Navegación principal: elimina bullets y alinea items */
+.original-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(var(--glow));
+}
+
 .nav-grid {
-    list-style: none;      /* quita los puntitos */
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem;
+    position: relative;
 }
 
-/* Enlaces por defecto: blancos */
 .nav-item {
     color: var(--text);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 500; /* Outfit se ve excelente en 500-600 */
     text-decoration: none;
     position: relative;
-    padding: 0.3rem 0;
-    transition: color 0.2s ease;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+    letter-spacing: 1px; /* Más espaciado para elegancia geométrica */
+    text-transform: uppercase;
+    font-family: var(--font-primary);
 }
 
-/* Hover y enlace activo: rojo monocrómico */
-.nav-item:hover,
-.nav-item.active {
-    color: var(--primary);
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    transition: var(--transition);
+    opacity: 0;
 }
 
-/* Línea inferior animada */
 .nav-item::after {
     content: '';
     position: absolute;
     bottom: -3px;
     left: 0;
     width: 0;
-    height: 1.5px;
+    height: 1px;
     background: var(--primary);
-    transition: width 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--primary);
+    text-shadow: 0 0 20px rgba(255, 77, 90, 0.4);
+    font-weight: 600; /* Peso más grueso en estado activo */
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+    width: 100%;
+    opacity: 1;
 }
 
 .nav-item:hover::after,
@@ -79,58 +126,211 @@
     width: 100%;
 }
 
+/* Efecto de elevación sutil en hover */
+.nav-item:hover {
+    transform: translateY(-2px);
+}
+
 .hamburger-btn {
     display: none;
     background: none;
     border: none;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: var(--transition);
+    font-family: var(--font-primary);
+}
+
+.hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .micro-bar {
     width: 24px;
     height: 1.5px;
     background: var(--text);
-    margin: 5px 0;
-    transition: transform 0.3s ease;
+    margin: 5px auto;
+    transition: var(--transition);
+    position: relative;
 }
 
+.micro-bar:first-child {
+    transform-origin: center;
+}
+
+.micro-bar:last-child {
+    transform-origin: center;
+}
+
+/* Línea decorativa sutil en desktop */
+.nav-grid::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    right: -20px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 77, 90, 0.4),
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.nav-content:hover .nav-grid::before {
+    opacity: 1;
+}
+
+/* Mobile Styles - Mejorado con Outfit */
 @media (max-width: 768px) {
+    .dark-header {
+        height: 70px;
+        backdrop-filter: blur(25px);
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .original-logo {
+        width: 100px;
+    }
+
     .slim-nav {
         position: fixed;
-        top: 60px;
+        top: 0;
         left: 0;
         right: 0;
-        background: var(--bg);
-        padding: 1rem 2rem;
-        transform: translateY(-150%);
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        padding: 100px 2rem 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-family: var(--font-primary);
     }
 
     .nav-grid {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
+        width: 100%;
     }
+
+    .nav-item {
+        font-size: 1.2rem; /* Un poco más grande en móvil */
+        font-weight: 500;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        letter-spacing: 1.2px;
+    }
+
+    .slim-nav.active .nav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Animación escalonada para los items del menú */
+    .slim-nav.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .slim-nav.active .nav-item:nth-child(2) { transition-delay: 0.15s; }
+    .slim-nav.active .nav-item:nth-child(3) { transition-delay: 0.2s; }
+    .slim-nav.active .nav-item:nth-child(4) { transition-delay: 0.25s; }
+    .slim-nav.active .nav-item:nth-child(5) { transition-delay: 0.3s; }
 
     .hamburger-btn {
         display: block;
     }
 
     .slim-nav.active {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 
     .hamburger-btn.active .micro-bar:first-child {
-        transform: rotate(45deg) translate(4px, 4px);
+        transform: rotate(45deg) translate(6px, 6px);
+        background: var(--primary);
     }
 
     .hamburger-btn.active .micro-bar:last-child {
-        transform: rotate(-45deg) translate(4px, -4px);
+        transform: rotate(-45deg) translate(6px, -6px);
+        background: var(--primary);
     }
+
+    .hamburger-btn.active .micro-bar:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Efectos de profundidad y sombras */
+.dark-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    opacity: 0.3;
+}
+
+/* Estados de scroll mejorados */
+.dark-header.scrolled .original-logo {
+    width: 110px;
+}
+
+.dark-header.scrolled .nav-item {
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 main {
     margin: 0;
     padding: 0;
+}
+
+/* Mejoras de accesibilidad y rendimiento */
+@media (prefers-reduced-motion: reduce) {
+    .dark-header,
+    .nav-item,
+    .original-logo,
+    .micro-bar {
+        transition: none;
+    }
+}
+
+/* Estados de foco para accesibilidad */
+.nav-item:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.hamburger-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Clase global para aplicar Outfit a todo el sitio */
+body {
+    font-family: var(--font-primary);
 }

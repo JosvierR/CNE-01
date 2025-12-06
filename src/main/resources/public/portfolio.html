@@ -62,8 +62,10 @@
 
             <!-- Grid de proyectos -->
             <div class="projects-container">
-                <!-- Proyecto 1 -->
-                <article class="project-card" data-category="terminado">
+                <!-- Proyecto 1: Henbet58 -->
+                <article class="project-card" 
+                         data-category="terminado"
+                         data-images="assets/Henbet58/GPR_6935.jpg,assets/Henbet58/GPR_6870.jpg,assets/Henbet58/GPR_6872.jpg,assets/Henbet58/GPR_6902.jpg,assets/Henbet58/GPR_6917.jpg">
                     <div class="project-media">
                         <img src="assets/Henbet58/GPR_6935.jpg" alt="Henbet58" class="project-image">
                         <div class="project-overlay">
@@ -72,13 +74,15 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <p class="project-description">Diseño poderoso y ligero para espacios modernos</p>
+                        <p class="project-description">Diseño poderoso y ligero para espacios modernos.</p>
                         <button class="project-details">Ver Detalles</button>
                     </div>
                 </article>
 
-                <!-- Proyecto 2 -->
-                <article class="project-card" data-category="terminado">
+                <!-- Proyecto 2: Enmag11 -->
+                <article class="project-card" 
+                         data-category="terminado"
+                         data-images="assets/Enmag11/GPR03040.jpg,assets/Enmag11/GPR02998.jpg,assets/Enmag11/GPR03004.jpg,assets/Enmag11/GPR03033.jpg,assets/Enmag11/GPR03159.jpg">
                     <div class="project-media">
                         <img src="assets/Enmag11/GPR03040.jpg" alt="Enmag11" class="project-image">
                         <div class="project-overlay">
@@ -87,13 +91,15 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <p class="project-description">Máxima eficiencia y estilo arquitectónico</p>
+                        <p class="project-description">Máxima eficiencia y estilo arquitectónico.</p>
                         <button class="project-details">Ver Detalles</button>
                     </div>
                 </article>
 
-                <!-- Proyecto 3 -->
-                <article class="project-card" data-category="proceso">
+                <!-- Proyecto 3: BauruII -->
+                <article class="project-card" 
+                         data-category="proceso"
+                         data-images="assets/BauruII/A3RE_F003_BAURU II.png,assets/BauruII/A3RE_F004_BAURU II.png,assets/BauruII/CONJUNTO.jpg">
                     <div class="project-media">
                         <img src="assets/BauruII/A3RE_F003_BAURU II.png" alt="BauruII" class="project-image">
                         <div class="project-overlay">
@@ -102,7 +108,7 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <p class="project-description">Innovación en transporte urbano</p>
+                        <p class="project-description">Innovación en transporte urbano y diseño de vanguardia.</p>
                         <button class="project-details">Ver Detalles</button>
                     </div>
                 </article>
@@ -118,13 +124,16 @@
     </section>
 </main>
 
-<!-- MODAL MODERNO -->
+<!-- MODAL CON GALERÍA -->
 <div class="modern-modal" id="portfolio-modal">
     <div class="modal-container">
         <button class="modal-close"><ion-icon name="close-outline"></ion-icon></button>
         <div class="modal-content">
             <div class="modal-media">
-                <img id="modal-image" src="" alt="" class="modal-main-image">
+                <img id="modal-image" src="" alt="Imagen principal del proyecto" class="modal-main-image">
+                <div class="modal-gallery-thumbnails">
+                    <!-- Las miniaturas se generarán con JavaScript -->
+                </div>
             </div>
             <div class="modal-info">
                 <h2 id="modal-title"></h2>
@@ -133,50 +142,49 @@
                     <span id="modal-year"></span>
                 </div>
                 <p id="modal-description"></p>
-                <div class="modal-tech">
-                    <span>Tecnologías:</span>
-                    <div class="tech-tags"></div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- FOOTER MEJORADO -->
-<footer class="modern-footer">
-    <div class="container footer-content">
-        <div class="footer-brand">
-            <img src="assets/img/LogoRed.png" alt="Constructora RB" class="footer-logo">
-            <p class="footer-tagline">Innovación en construcción desde 1999</p>
-        </div>
-
-        <div class="footer-links">
-            <div class="footer-col">
-                <h4 class="footer-title">Proyectos</h4>
-                <ul class="project-links">
-                    <li><a href="#">Residenciales</a></li>
-                    <li><a href="#">Comerciales</a></li>
-                    <li><a href="#">Urbanos</a></li>
-                </ul>
+<!-- FOOTER ARQUITECTÓNICO -->
+<footer class="footer-architectural">
+    <div class="footer-architectural-container">
+        <div class="footer-top-line"></div>
+        <div class="footer-architectural-main">
+            <div class="footer-architectural-brand">
+                <a href="index.html">
+                    <img src="assets/img/LogoRed.png" alt="Logo" class="footer-architectural-logo">
+                </a>
+                <div class="logo-underline"></div>
             </div>
-
-            <div class="footer-col">
-                <h4 class="footer-title">Contacto</h4>
-                <ul class="contact-info">
-                    <li><ion-icon name="location-outline"></ion-icon>123 Riverbend Rd, TX</li>
-                    <li><ion-icon name="call-outline"></ion-icon>+1 (555) 123-4567</li>
-                    <li><ion-icon name="mail-outline"></ion-icon>info@constructorarb.com</li>
-                </ul>
+            <div class="footer-architectural-contact">
+                <div class="contact-architectural-line"></div>
+                <div class="contact-architectural-content">
+                    <span class="contact-label-architectural">Contacto</span>
+                    <p class="contact-value-architectural">123 Riverbend Rd, TX<br>+1 (555) 123-4567<br>info@constructorarb.com</p>
+                </div>
+                <div class="contact-architectural-line"></div>
+            </div>
+            <div class="footer-architectural-social">
+                <div class="social-architectural-container">
+                    <a href="#" class="social-architectural-link">
+                        <div class="social-icon-wrapper"><ion-icon name="logo-linkedin"></ion-icon></div>
+                    </a>
+                    <a href="#" class="social-architectural-link">
+                        <div class="social-icon-wrapper"><ion-icon name="logo-instagram"></ion-icon></div>
+                    </a>
+                    <a href="#" class="social-architectural-link">
+                        <div class="social-icon-wrapper"><ion-icon name="logo-facebook"></ion-icon></div>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p class="copyright">&copy; 2025 Rodriguez Bonilla Construction</p>
-        <div class="social-links">
-            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+        <div class="footer-architectural-divider"></div>
+        <div class="footer-architectural-bottom">
+            <div class="copyright-architectural-line"></div>
+            <p class="copyright-architectural-text">&copy; 2025 Constructora Rodriguez Bonilla. Todos los derechos reservados.</p>
+            <div class="copyright-architectural-line"></div>
         </div>
     </div>
 </footer>
@@ -188,11 +196,12 @@
 <!-- Scripts mejorados -->
 <script src="js/app.js"></script>
 <script>
-    // JavaScript moderno con mejores prácticas
     class PortfolioManager {
         constructor() {
             this.projects = Array.from(document.querySelectorAll('.project-card'));
             this.modal = document.getElementById('portfolio-modal');
+            this.mainModalImage = document.getElementById('modal-image');
+            this.thumbnailsContainer = document.querySelector('.modal-gallery-thumbnails');
             this.init();
         }
 
@@ -214,9 +223,7 @@
 
         filterProjects(category) {
             this.projects.forEach(project => {
-                project.style.display = (category === 'all' || project.dataset.category === category)
-                    ? 'block'
-                    : 'none';
+                project.style.display = (category === 'all' || project.dataset.category === category) ? 'block' : 'none';
             });
         }
 
@@ -224,11 +231,15 @@
             document.querySelectorAll('.project-details').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const project = btn.closest('.project-card');
+                    const images = project.dataset.images.split(',');
+                    console.log('Cargando modal para proyecto:', project.querySelector('.project-title').textContent);
+                    console.log('Rutas de imágenes:', images);
                     this.showModal(
                         project.querySelector('.project-title').textContent,
                         project.querySelector('.project-description').textContent,
-                        project.querySelector('img').src,
-                        project.dataset.category
+                        images,
+                        project.dataset.category,
+                        project.querySelector('.project-status').textContent
                     );
                 });
             });
@@ -238,11 +249,44 @@
             });
         }
 
-        showModal(title, description, image, category) {
+        showModal(title, description, images, category, year) {
+            console.log('Dentro de showModal - Imágenes recibidas:', images);
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-image').src = image;
             document.getElementById('modal-category').textContent = category;
+            document.getElementById('modal-year').textContent = year;
+
+            if (images && images.length > 0) {
+                this.mainModalImage.src = images[0];
+                console.log('Imagen principal establecida a:', images[0]);
+            } else {
+                this.mainModalImage.src = ''; // O una imagen de placeholder
+                console.log('No hay imágenes para mostrar como principal.');
+            }
+            
+            this.thumbnailsContainer.innerHTML = '';
+
+            images.forEach((imageSrc, index) => {
+                console.log('Creando miniatura para:', imageSrc);
+                const thumb = document.createElement('img');
+                thumb.src = imageSrc;
+                thumb.alt = `Miniatura ${index + 1} de ${title}`;
+                thumb.classList.add('modal-thumbnail');
+                if (index === 0) {
+                    thumb.classList.add('active');
+                }
+                thumb.addEventListener('click', () => {
+                    this.mainModalImage.src = imageSrc;
+                    const currentActive = document.querySelector('.modal-thumbnail.active');
+                    if (currentActive) {
+                        currentActive.classList.remove('active');
+                    }
+                    thumb.classList.add('active');
+                    console.log('Miniatura clicada, imagen principal cambiada a:', imageSrc);
+                });
+                this.thumbnailsContainer.appendChild(thumb);
+            });
+
             this.modal.classList.add('active');
         }
 

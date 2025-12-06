@@ -1,18 +1,167 @@
-/* ====================
-   HERO SIMPLIFICADO
-==================== */
+/* HERO - Arquitectura Industrial Radical */
+:root {
+    --primary: #FF4D5A;
+    --bg: #000000;
+    --text: #FFFFFF;
+    --accent: rgba(255, 77, 90, 0.3);
+    --grid-color: rgba(255, 255, 255, 0.05);
+    --transition-arch: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .hero {
     position: relative;
     height: 100vh;
-    padding-top: 60px; /* ✅ Para dejar espacio al header fijo */
-    background: #000;
+    min-height: 800px;
+    background: var(--bg);
     overflow: hidden;
+    padding-top: 80px;
 }
 
-.hero-slider {
-    position: relative; /* ✅ antes era absolute, ahora respeta padding */
+/* Sistema de grid arquitectónico */
+.hero-architectural-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-line {
+    position: absolute;
+    background: var(--grid-color);
+}
+
+.grid-line.vertical {
+    width: 1px;
+    height: 100%;
+}
+
+.grid-line.vertical.left-25 { left: 25%; }
+.grid-line.vertical.center { left: 50%; }
+.grid-line.vertical.right-25 { left: 75%; }
+
+.grid-line.horizontal {
+    width: 100%;
+    height: 1px;
+}
+
+.grid-line.horizontal.top-33 { top: 33%; }
+.grid-line.horizontal.bottom-66 { top: 66%; }
+
+/* Contenido principal arquitectónico */
+.hero-content-architectural {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1400px;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.hero-title-container {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.hero-architectural-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 0.85;
+    color: var(--text);
+    margin: 0 0 30px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.title-line-1,
+.title-line-2 {
+    display: block;
+    position: relative;
+}
+
+.title-line-2 {
+    margin-left: 100px;
+}
+
+.title-accent {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 200px;
+    height: 3px;
+    background: var(--primary);
+    animation: pulseLine 2s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+    0%, 100% { opacity: 0.7; width: 200px; }
+    50% { opacity: 1; width: 220px; }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 30px;
+}
+
+/* Indicador de scroll arquitectónico */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% { height: 60px; opacity: 0.3; }
+    50% { height: 80px; opacity: 1; }
+    100% { height: 60px; opacity: 0.3; }
+}
+
+.hero-scroll-indicator span {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text);
+    opacity: 0.7;
+}
+
+/* Slider mejorado */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .hero-slider .slide {
@@ -20,204 +169,623 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-slider .slide.active {
     opacity: 1;
 }
 
-.hero-slider .slide img,
-.hero-image {
+.hero-slider .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    display: block;
+    filter: brightness(0.4) contrast(1.1);
 }
 
-/* ✅ NUEVO: capa para mostrar el nombre encima de la imagen */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 2;
-    color: white;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 1rem;
-}
-
-/* ====================
-   CONTROLES MINIMALISTAS
-==================== */
+/* Controles arquitectónicos */
 .slider-dots {
     position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 40px;
+    right: 40px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .slider-dots .dot {
-    width: 12px;
-    height: 12px;
+    width: 40px;
+    height: 1px;
     background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: var(--transition-arch);
+    position: relative;
 }
 
-.slider-dots .dot.active {
-    background: #ffffff;
+.slider-dots .dot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.slider-dots .dot.active::before {
+    width: 100%;
+}
+
+.slider-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .hero-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    color: #fff;
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 2;
-    border: none;
+    transition: var(--transition-arch);
+    z-index: 5;
+    backdrop-filter: blur(5px);
 }
 
 .hero-arrow:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 77, 90, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.hero-arrow-left {
-    left: 25px;
+.hero-arrow-left { left: 40px; }
+.hero-arrow-right { right: 40px; }
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text);
+    stroke-width: 2;
+    fill: none;
+    transition: var(--transition-arch);
 }
 
-.hero-arrow-right {
-    right: 25px;
+.hero-arrow:hover .arrow-icon {
+    stroke: var(--primary);
+    transform: translateX(-3px);
 }
 
-.hero-arrow ion-icon {
-    font-size: 1.6rem;
+.hero-arrow-right:hover .arrow-icon {
+    transform: translateX(3px);
 }
 
-/* ====================
-   CONTADORES LIMPIOS
-==================== */
-.hero-counter {
-    margin-top: 60px;
-    /* espacio bajo el header */
-    background: #000;
-    padding: 60px 0;
-}
-
-.counters-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.counter-box {
-    text-align: center;
-    padding: 25px;
-    background: #000;
-    /* fondo negro */
-    border-radius: 12px;
-    width: 200px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.counter-value {
-    font-size: 3rem;
-    font-weight: 600;
-    color: #B22222;
-    /* texto rojo monocromático */
-    margin-bottom: 8px;
-    font-family: 'Inter', sans-serif;
-}
-
-.counter-box p {
-    color: #B22222;
-    /* texto rojo monocromático */
-    font-size: 1rem;
-}
-
-/* ====================
-   SLIDER PROYECTOS SIMPLE
-==================== */
-.slider-row {
-    padding: 50px 0;
-    background: #fff;
-}
-
-.slider-row-images {
-    display: flex;
-    gap: 20px;
-    padding: 0 20px;
-    overflow-x: auto;
-}
-
-.slide-item {
-    flex: 0 0 280px;
-}
-
-.project-card {
-    background: #fff;
-    border-radius: 8px;
+/* PROYECTOS DESTACADOS - Diseño Escultórico */
+.featured-projects {
+    padding: 120px 0;
+    background: var(--bg);
+    position: relative;
     overflow: hidden;
 }
 
-.project-card img {
+.projects-header-architectural {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+}
+
+.header-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+}
+
+.projects-title-architectural {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    padding: 0 40px;
+    color: var(--text);
+}
+
+.title-number {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--primary);
+    opacity: 0.7;
+}
+
+.title-text {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* Grid de proyectos */
+.projects-grid-architectural {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+    padding: 0 40px;
+}
+
+.project-card-architectural {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-arch);
+}
+
+.project-card-architectural:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--primary);
+}
+
+.project-media-architectural {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.project-image-architectural {
     width: 100%;
-    height: 360px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-architectural:hover .project-image-architectural {
+    transform: scale(1.05);
+}
+
+.project-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: #000;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.project-overlay-architectural {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card-architectural:hover .project-overlay-architectural {
+    opacity: 1;
+}
+
+.overlay-content {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.overlay-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.5;
+}
+
+.overlay-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.project-info-architectural {
+    padding: 30px;
+}
+
+.project-meta {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-description-architectural {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.project-view-details {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-arch);
+}
+
+.project-view-details:hover {
+    gap: 20px;
+    color: var(--text);
+}
+
+.project-view-details .arrow-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.project-view-details:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Footer de proyectos */
+.projects-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.all-projects-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition-arch);
+}
+
+.all-projects-link:hover {
+    color: var(--primary);
+    gap: 20px;
+}
+
+.link-arrow {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.all-projects-link:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+.project-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.current {
+    color: var(--primary);
+}
+
+.separator {
+    opacity: 0.5;
+}
+
+.total {
+    opacity: 0.7;
+}
+
+/* SERVICIOS - Estilo Industrial */
+.services-section {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-container-architectural {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+}
+
+.services-title-container {
+    flex: 1;
+}
+
+.services-title-architectural {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.services-subtitle-architectural {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+.services-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 16px 32px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-arch);
+}
+
+.services-contact-btn:hover {
+    background: var(--primary);
+    color: #000;
+    gap: 20px;
+}
+
+.btn-arrow {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.services-contact-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Grid de servicios industrial */
+.services-grid-industrial {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    counter-reset: service-counter;
+}
+
+.service-item-industrial {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    transition: var(--transition-arch);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item-industrial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 77, 90, 0.1),
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-item-industrial:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.service-item-industrial:hover::before {
+    opacity: 1;
+}
+
+.service-icon-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.icon-background {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 77, 90, 0.1);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.service-icon-industrial {
+    font-size: 2rem;
+    color: var(--primary);
+    position: relative;
+    z-index: 1;
+}
+
+.service-content {
+    position: relative;
+    z-index: 1;
+}
+
+.service-title-industrial {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-title-industrial::before {
+    content: '0' counter(service-counter);
+    counter-increment: service-counter;
+    display: block;
+    font-size: 0.8rem;
+    color: var(--primary);
+    opacity: 0.7;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.service-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .hero-architectural-title {
+        font-size: clamp(3rem, 10vw, 7rem);
+    }
+
+    .projects-grid-architectural {
+        grid-template-columns: 1fr;
+    }
+
+    .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-architectural-title {
+        letter-spacing: -2px;
+    }
+
+    .title-line-2 {
+        margin-left: 50px;
+    }
+
+    .projects-header-architectural,
+    .projects-grid-architectural,
+    .projects-footer {
+        padding: 0 20px;
+    }
+
+    .services-container-architectural {
+        padding: 0 20px;
+    }
+
+    .service-item-industrial {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
     .hero-arrow {
-        width: 38px;
-        height: 38px;
+        width: 60px;
+        height: 60px;
     }
 
-    .counter-value {
-        font-size: 2.2rem;
+    .hero-arrow-left { left: 20px; }
+    .hero-arrow-right { right: 20px; }
+
+    .slider-dots {
+        bottom: 20px;
+        right: 20px;
     }
 
-    .slide-item {
-        flex: 0 0 240px;
+    .project-meta {
+        flex-direction: column;
+        gap: 10px;
     }
-}
-
-/* ====================
-   div for img and txt
-==================== */
-
-.mycontainer {
-    display: flex;
-    color: #fff; /* texto blancp o rojo monocromático dependiendo de lo que pida el cliente */
-
-}
-
-.mycontainer>div {
-    width: 50%;
-}
-
-.aboutus-title {
-    font-size: 3rem;
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
 }

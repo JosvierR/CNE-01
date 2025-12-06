@@ -1,0 +1,900 @@
+/* =============================================
+   NOSOTROS.CSS - ARQUITECTÓNICO INDUSTRIAL PREMIUM
+   Coherente con el diseño de index.html
+   ============================================= */
+
+/* HERO NOSOTROS - Estilo arquitectónico radical */
+.hero-nosotros {
+    position: relative;
+    height: 85vh;
+    min-height: 700px;
+    background: #000;
+    overflow: hidden;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sistema de grid arquitectónico */
+.hero-nosotros-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-grid-line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-grid-line.vertical {
+    width: 1px;
+    height: 100%;
+}
+
+.hero-grid-line.vertical.left-20 { left: 20%; }
+.hero-grid-line.vertical.center { left: 50%; }
+.hero-grid-line.vertical.right-20 { left: 80%; }
+
+.hero-grid-line.horizontal {
+    width: 100%;
+    height: 1px;
+}
+
+.hero-grid-line.horizontal.top-40 { top: 40%; }
+.hero-grid-line.horizontal.bottom-60 { top: 60%; }
+
+/* Imagen de fondo con efecto arquitectónico */
+.hero-nosotros-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-nosotros-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.4) contrast(1.1) grayscale(0.3);
+    transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-nosotros:hover .hero-nosotros-image img {
+    filter: brightness(0.5) contrast(1.2) grayscale(0);
+}
+
+/* Contenido principal arquitectónico */
+.hero-nosotros-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.hero-nosotros-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.title-line-1 {
+    display: block;
+}
+
+.title-line-2 {
+    display: block;
+    color: var(--primary);
+    margin-left: 100px;
+}
+
+.title-accent-line {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 200px;
+    height: 2px;
+    background: var(--primary);
+    animation: pulseLine 2s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+    0%, 100% { opacity: 0.7; width: 200px; }
+    50% { opacity: 1; width: 220px; }
+}
+
+.hero-nosotros-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 30px auto 0;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Indicador de scroll arquitectónico */
+.hero-nosotros-scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+}
+
+.scroll-line-nosotros {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+.scroll-text-nosotros {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* SECCIÓN DE INTRODUCCIÓN - Arquitectónica */
+.introduccion-section {
+    padding: 120px 0;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo con patrón arquitectónico */
+.introduccion-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, rgba(255,77,90,0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,77,90,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.container-intro {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Encabezado arquitectónico */
+.intro-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    gap: 40px;
+}
+
+.intro-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.title-number {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    opacity: 0.7;
+    letter-spacing: 3px;
+}
+
+.intro-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.1),
+        rgba(255,77,90,0.3),
+        rgba(255,255,255,0.1)
+    );
+}
+
+/* Grid de contenido arquitectónico */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* Contenido de texto */
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.intro-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding-left: 30px;
+}
+
+.intro-paragraph::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 10px;
+    height: 1px;
+    background: var(--primary);
+}
+
+.intro-paragraph strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Estadísticas arquitectónicas */
+.intro-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
+}
+
+.stat-item {
+    text-align: left;
+    position: relative;
+    padding-left: 20px;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    transform: rotate(45deg);
+}
+
+.stat-number {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* SECCIÓN DEL EQUIPO - Arquitectónica Premium */
+.team-section-architectural {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+    position: relative;
+}
+
+.container-team {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Encabezado del equipo */
+.team-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    gap: 40px;
+}
+
+.team-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.team-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 400px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Grid del equipo */
+.team-grid-architectural {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+/* Miembro del equipo - Tarjeta arquitectónica */
+.team-member-architectural {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.team-member-architectural:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--primary);
+}
+
+/* Imagen del miembro */
+.team-member-image {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background: #000;
+}
+
+.team-member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(0.3);
+}
+
+.team-member-architectural:hover .team-member-image img {
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+
+/* Overlay arquitectónico */
+.member-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        transparent 100%
+    );
+    z-index: 2;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-member-architectural:hover .member-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.member-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.member-title {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Información del miembro */
+.team-member-info {
+    padding: 30px;
+}
+
+.member-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+}
+
+.member-contact {
+    margin-bottom: 25px;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.contact-link:hover {
+    color: var(--primary);
+    gap: 15px;
+}
+
+.contact-link::before {
+    content: '→';
+    color: var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-link:hover::before {
+    opacity: 1;
+}
+
+/* Especialidades del miembro */
+.member-expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.expertise-tag {
+    background: rgba(255, 77, 90, 0.1);
+    color: var(--primary);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 77, 90, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-member-architectural:hover .expertise-tag {
+    background: rgba(255, 77, 90, 0.2);
+    border-color: var(--primary);
+}
+
+/* SECCIÓN VALORES - Arquitectónica */
+.valores-section {
+    padding: 120px 0;
+    background: #000;
+    position: relative;
+}
+
+.container-valores {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Encabezado de valores */
+.valores-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.valores-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title-number {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    opacity: 0.7;
+    letter-spacing: 3px;
+}
+
+.valores-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Grid de valores arquitectónico */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    counter-reset: valor-counter;
+}
+
+.valor-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.valor-card::before {
+    content: '0' counter(valor-counter);
+    counter-increment: valor-counter;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary);
+    opacity: 0.1;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.valor-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.valor-card:hover::before {
+    opacity: 0.2;
+    transform: translateY(-5px);
+}
+
+/* Contenido del valor */
+.valor-icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 77, 90, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.valor-icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.valor-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.valor-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+/* CTA DEL EQUIPO - Arquitectónico */
+.team-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-text {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 16px 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.cta-button:hover {
+    color: #000;
+    gap: 20px;
+}
+
+.cta-button:hover::before {
+    left: 0;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* RESPONSIVIDAD ARQUITECTÓNICA */
+@media (max-width: 1200px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .intro-stats {
+        order: -1;
+    }
+
+    .team-grid-architectural {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-nosotros-title {
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+
+    .title-line-2 {
+        margin-left: 50px;
+    }
+
+    .team-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-nosotros {
+        height: 70vh;
+        min-height: 500px;
+        padding-top: 70px;
+    }
+
+    .hero-nosotros-content {
+        padding: 0 20px;
+    }
+
+    .intro-header,
+    .team-header,
+    .valores-header {
+        margin-bottom: 60px;
+    }
+
+    .container-intro,
+    .container-team,
+    .container-valores {
+        padding: 0 20px;
+    }
+
+    .intro-stats {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .team-grid-architectural {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .valor-card {
+        padding: 30px;
+    }
+
+    .cta-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-nosotros {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .hero-nosotros-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        letter-spacing: -1px;
+    }
+
+    .title-line-2 {
+        margin-left: 30px;
+    }
+
+    .hero-nosotros-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .intro-title,
+    .team-title,
+    .valores-title {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+
+    .team-member-image {
+        height: 250px;
+    }
+
+    .team-member-info {
+        padding: 20px;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-grid > *,
+.team-grid-architectural > *,
+.valores-grid > * {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+/* Retrasos escalonados para las animaciones */
+.intro-content { animation-delay: 0.1s; }
+.intro-stats { animation-delay: 0.2s; }
+
+.team-grid-architectural > *:nth-child(1) { animation-delay: 0.1s; }
+.team-grid-architectural > *:nth-child(2) { animation-delay: 0.2s; }
+.team-grid-architectural > *:nth-child(3) { animation-delay: 0.3s; }
+.team-grid-architectural > *:nth-child(4) { animation-delay: 0.4s; }
+
+.valores-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.valores-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.valores-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.valores-grid > *:nth-child(4) { animation-delay: 0.4s; }
+.valores-grid > *:nth-child(5) { animation-delay: 0.5s; }
+.valores-grid > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Optimización de rendimiento */
+@media (prefers-reduced-motion: reduce) {
+    .hero-nosotros-image img,
+    .team-member-image img,
+    .valor-card,
+    .team-member-architectural,
+    .cta-button {
+        transition: none;
+        animation: none;
+    }
+
+    .intro-grid > *,
+    .team-grid-architectural > *,
+    .valores-grid > * {
+        animation: none;
+        opacity: 1;
+    }
+
+    .scroll-line-nosotros,
+    .title-accent-line {
+        animation: none;
+    }
+}

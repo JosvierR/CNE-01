@@ -1,60 +1,636 @@
-/* MODAL */
+/* MODAL ARQUITECTÓNICO INDUSTRIAL PREMIUM */
 .modal {
     display: none;
     position: fixed;
-    z-index: 2000;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-    padding-top: 60px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+    contain: strict;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+/* Grid arquitectónico de fondo */
+.modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, rgba(255,77,90,0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,77,90,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    opacity: 0.2;
 }
 
 .modal-content {
-    background-color: #222;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #444;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    margin: 2vh auto;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     width: 90%;
-    max-width: 700px;
+    max-width: 1000px;
+    max-height: 96vh;
     color: #fff;
     position: relative;
-    border-radius: 5px;
+    border-radius: 0;
+    overflow: hidden;
+    transform: translateY(50px) scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 77, 90, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.modal.show .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+/* Línea decorativa superior */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* Header arquitectónico del modal */
+.modal-header {
+    padding: 40px 40px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 77, 90, 0.3),
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
 }
 
 .modal-content h2 {
-    margin-bottom: 1rem;
+    margin: 0 0 10px 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    line-height: 1.2;
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    opacity: 0.8;
+    margin-left: 10px;
+}
+
+/* Cuerpo del modal - Diseño arquitectónico */
+.modal-body {
+    padding: 40px;
+    overflow-y: auto;
+    max-height: calc(96vh - 200px);
+    background: rgba(20, 20, 20, 0.5);
 }
 
 .modal-content p {
-    margin-bottom: 1rem;
+    margin: 0 0 25px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    font-weight: 300;
 }
 
-.video-container {
+/* Contenedores de media arquitectónicos */
+.video-container,
+.image-container {
     width: 100%;
-    margin-bottom: 1rem;
+    margin: 30px 0;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateZ(0);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.video-container video {
+.video-container::before,
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.video-container video,
+.image-container img {
     width: 100%;
     height: auto;
+    display: block;
     border: none;
+    transform: translateZ(0);
 }
 
-.close {
-    color: #aaa;
+.image-container img {
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+/* Galería del modal - Arquitectónica */
+.modal-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 30px 0;
+    position: relative;
+}
+
+.modal-media::before {
+    content: '';
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.3;
+}
+
+.modal-main-image {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    object-fit: contain;
+    margin-bottom: 25px;
+    transition: filter 0.3s ease;
+}
+
+.modal-main-image:hover {
+    filter: brightness(1.1);
+}
+
+.modal-gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-thumbnail {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
     cursor: pointer;
-    transition: color 0.2s;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(0.5) brightness(0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 77, 90, 0);
+    transition: background 0.3s ease;
+    z-index: 1;
+}
+
+.modal-thumbnail:hover {
+    border-color: var(--primary);
+    filter: grayscale(0) brightness(1);
+    transform: translateY(-3px);
+}
+
+.modal-thumbnail:hover::before {
+    background: rgba(255, 77, 90, 0.1);
+}
+
+.modal-thumbnail.active {
+    border-color: var(--primary);
+    filter: grayscale(0) brightness(1);
+    box-shadow: 0 0 20px rgba(255, 77, 90, 0.3);
+}
+
+/* Botón de cierre arquitectónico */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    transform: translateZ(0);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.close::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .close:hover,
 .close:focus {
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    transform: rotate(90deg);
+    box-shadow: 0 0 30px rgba(255, 77, 90, 0.3);
+}
+
+.close:hover::before {
+    opacity: 1;
+}
+
+.close:active {
+    transform: rotate(90deg) scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* Scrollbar personalizada arquitectónica */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 77, 90, 0.3);
+}
+
+/* Footer del modal */
+.modal-footer {
+    padding: 30px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.modal-location {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-location::before {
+    content: '📍';
+    font-size: 0.8rem;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 20px;
+}
+
+.meta-item {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Controles de navegación (para modales con múltiples imágenes) */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.nav-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 77, 90, 0.3);
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Indicador de imagen */
+.modal-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+}
+
+/* RESPONSIVE ARQUITECTÓNICO */
+@media (max-width: 1024px) {
+    .modal-content {
+        width: 95%;
+        margin: 1vh auto;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 30px;
+    }
+
+    .modal-nav {
+        padding: 0 10px;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 98%;
+        margin: 0.5vh auto;
+        max-height: 98vh;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 20px;
+    }
+
+    .close {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .modal-media {
+        padding: 20px;
+    }
+
+    .modal-thumbnail {
+        width: 80px;
+        height: 60px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .modal-counter {
+        bottom: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .modal-subtitle {
+        margin-left: 0;
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    .modal-thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+
+    .modal-gallery-thumbnails {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .modal-media {
+        padding: 15px;
+    }
+
+    .modal-main-image {
+        max-height: 50vh;
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+@keyframes modalContentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-content {
+    animation: modalContentFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Optimización de rendimiento */
+@media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal-content,
+    .close,
+    .nav-btn,
+    .modal-thumbnail {
+        transition: none;
+        animation: none;
+    }
+
+    .modal.show .modal-content {
+        transform: none;
+    }
+
+    .close:hover,
+    .nav-btn:hover,
+    .modal-thumbnail:hover {
+        transform: none;
+    }
+}
+
+/* Estados de foco para accesibilidad */
+.close:focus-visible,
+.nav-btn:focus-visible,
+.modal-thumbnail:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Mejora de carga de imágenes */
+.image-container img,
+.modal-main-image,
+.modal-thumbnail {
+    content-visibility: auto;
+    will-change: transform;
+}
+
+/* Prevenir flashes en iOS */
+@supports (-webkit-touch-callout: none) {
+    .modal-content {
+        -webkit-backdrop-filter: blur(40px);
+    }
+}
+
+/* Optimización para dark mode */
+@media (prefers-color-scheme: dark) {
+    .modal-content {
+        background: rgba(10, 10, 10, 0.98);
+    }
 }

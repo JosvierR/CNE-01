@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros | Industrial Modern</title>
-    <!-- Fuente elegante (Cinzel) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Hojas de Estilos -->
+
+    <!-- Google Fonts: Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Global -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/modal.css">
@@ -19,205 +18,410 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/nosotros.css"> <!-- Específico para esta página -->
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header class="dark-header">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="minimal-logo">
-                    <img src="assets/img/LogoRed.png" alt="Logo" class="original-logo">
-                </a>
-                <nav class="slim-nav">
-                    <ul class="nav-grid">
-                        <li><a href="index.html" class="nav-item">Inicio</a></li>
-                        <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
-                        <li><a href="servicios.html" class="nav-item">Servicios</a></li>
-                        <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-                        <li><a href="contacto.html" class="nav-item">Contacto</a></li>
-                    </ul>
-                </nav>
-                <button class="hamburger-btn">
-                    <div class="micro-bar"></div>
-                    <div class="micro-bar"></div>
-                </button>
-            </div>
+<!-- HEADER -->
+<header class="dark-header">
+    <div class="container">
+        <div class="nav-content">
+            <a href="index.html" class="minimal-logo">
+                <img src="assets/img/LogoRed.png" alt="Logo" class="original-logo">
+            </a>
+            <nav class="slim-nav">
+                <ul class="nav-grid">
+                    <li><a href="index.html" class="nav-item">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-item">Servicios</a></li>
+                    <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+                    <li><a href="contacto.html" class="nav-item">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-btn">
+                <div class="micro-bar"></div>
+                <div class="micro-bar"></div>
+            </button>
         </div>
-    </header>
-    <main>
-        <section class="team-section fade-in">
-            <h2 class="aboutus-title">NOSOTROS</h2>
+    </div>
+</header>
 
-            <div class="mycontainer">
-
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                </div>
-
-
-
-                <div>
-                    <img src="assets/img/house.png" alt="Foto de la empresa o local">
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-            <!-- SECCIÓN HERO COUNTER -->
-            <section class="hero-counter"> <!-- changed the color on the hero.css -->
-                <div class="hero-counter-overlay">
-                    <div class="container counters-container">
-                        <div class="counter-box">
-                            <div class="counter-value" data-target="25">0</div>
-                            <p>House Awards</p>
-                        </div>
-                        <div class="counter-box">
-                            <div class="counter-value" data-target="65">0</div>
-                            <p>Projects</p>
-                        </div>
-                        <div class="counter-box">
-                            <div class="counter-value" data-target="24">0</div>
-                            <p>Years of Experience</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECCIÓN TEAM -->
-            <section class="team-section fade-in">
-                <div class="container">
-                    <h2 class="team-title">TEAM</h2>
-                    <div class="team-grid">
-                        <div class="team-member">
-                            <img src="/assets/img/xavier.jpg" alt="Xavier Rodríguez">
-                            <h3>XAVIER RODRIGUEZ</h3>
-                            <p class="team-description">
-                                Xavier es el director general y cabeza estratégica de la empresa, con un fuerte enfoque
-                                en la innovación y calidad en cada proyecto.
-                            </p>
-                            <p class="team-media">
-                                <a style="color:#fff "href="mailto:XavierRCNE@org.com">XavierRCNE@org.com</a>
-                            </p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/assets/img/jose.jpg" alt="José Rodríguez">
-                            <h3>JOSE RODRIGUEZ</h3>
-                            <p class="team-description">
-                                José lidera el equipo de proyectos con una visión práctica y orientada a resultados,
-                                acumulando más de 20 años de experiencia.
-                            </p>
-                            <p class="team-media">
-                                <a style="color:#fff "href="mailto:JoseRCNE@org.com">JoseRCNE@org.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer theme-stonewave">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <img src="assets/img/LogoRed.png" alt="StoneWave Logo">
-            </div>
-            <div class="contact-info single">
-                <p>
-                    <span class="label">ADDRESS:</span>
-                    <span class="value">123 Riverbend Rd, Creekside, TX 75001, USA</span>
+<main>
+    <!-- HERO SECTION PARA NOSOTROS -->
+    <section class="hero-nosotros fade-in">
+        <div class="hero-nosotros-overlay">
+            <div class="hero-nosotros-content">
+                <h1 class="hero-nosotros-title">
+                    <span class="title-line-1">NUESTRA</span>
+                    <span class="title-line-2">FILOSOFÍA</span>
+                </h1>
+                <p class="hero-nosotros-subtitle">
+                    Más de dos décadas construyendo el futuro con diseño innovador y calidad excepcional.
                 </p>
             </div>
-            <ul class="social-icons">
-                <li><a href="#" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                <li><a href="#" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a></li>
-                <li><a href="#" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                <li><a href="#" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                <li><a href="#" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-            </ul>
+            <div class="hero-nosotros-scroll">
+                <div class="scroll-line"></div>
+                <span>SCROLL</span>
+            </div>
         </div>
-        <div class="footer-bottom">
-            <p>COPYRIGHT © 2025 RODRIGUEZ BONILLA CONSTRUCTION CO. | DESIGN BY CREATIVE STUDIOS</p>
+        <div class="hero-nosotros-image">
+            <img src="assets/img/house.png" alt="Edificio moderno">
         </div>
-    </footer>
+    </section>
 
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- SECCIÓN DE INTRODUCCIÓN -->
+    <section class="introduccion-section">
+        <div class="container-intro">
+            <div class="intro-header">
+                <div class="intro-title-container">
+                    <h2 class="intro-title">
+                        <span class="title-number">01</span>
+                        <span class="title-text">QUIÉNES<br>SOMOS</span>
+                    </h2>
+                    <div class="intro-line"></div>
+                </div>
+            </div>
 
-    <!-- Contador animado -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll(".counter-value");
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <p class="intro-paragraph">
+                        En <strong>Industrial Modern</strong> fusionamos diseño arquitectónico innovador con construcción de alta precisión. Desde 1999, hemos transformado visiones en estructuras icónicas que definen el paisaje urbano contemporáneo.
+                    </p>
+                    <p class="intro-paragraph">
+                        Nuestra filosofía se basa en tres pilares fundamentales: <strong>innovación</strong> en el diseño, <strong>excelencia</strong> en la ejecución y <strong>compromiso</strong> total con nuestros clientes. Cada proyecto es una oportunidad para superar expectativas.
+                    </p>
+                    <p class="intro-paragraph">
+                        Con un equipo multidisciplinario de arquitectos, ingenieros y especialistas en construcción, abordamos cada desafío con una perspectiva integral, asegurando resultados que perduran en el tiempo.
+                    </p>
+                </div>
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="65">0</div>
+                        <div class="stat-label">Proyectos Completados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">Premios Internacionales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            counters.forEach(counter => {
-                const target = +counter.getAttribute("data-target");
-                const speed = 200;
+    <!-- SECCIÓN DEL EQUIPO -->
+    <section class="team-section-architectural">
+        <div class="container-team">
+            <div class="team-header">
+                <h2 class="team-title">
+                    <span class="title-number">02</span>
+                    <span class="title-text">LIDERAZGO<br>Y EQUIPO</span>
+                </h2>
+                <p class="team-subtitle">
+                    Nuestro equipo directivo combina décadas de experiencia con una visión innovadora del diseño y la construcción.
+                </p>
+            </div>
 
-                const updateCount = () => {
-                    const current = +counter.innerText;
-                    const increment = Math.ceil(target / speed);
+            <div class="team-grid-architectural">
+                <!-- Miembro 1 -->
+                <article class="team-member-architectural">
+                    <div class="team-member-image">
+                        <img src="assets/img/xavier.jpg" alt="Xavier Rodríguez">
+                        <div class="member-overlay">
+                            <div class="overlay-content">
+                                <span class="member-number">01</span>
+                                <h3 class="member-name">XAVIER RODRIGUEZ</h3>
+                                <p class="member-title">CEO & Fundador</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <p class="member-description">
+                            Xavier es el visionario detrás de Industrial Modern. Con más de 25 años en la industria, su enfoque en la innovación y calidad ha definido el estándar de excelencia de la empresa.
+                        </p>
+                        <div class="member-contact">
+                            <a href="mailto:XavierRCNE@org.com" class="contact-link">
+                                <i class="bi bi-envelope"></i>
+                                XavierRCNE@org.com
+                            </a>
+                        </div>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Estrategia</span>
+                            <span class="expertise-tag">Innovación</span>
+                            <span class="expertise-tag">Diseño</span>
+                        </div>
+                    </div>
+                </article>
 
-                    if (current < target) {
-                        counter.innerText = current + increment;
-                        setTimeout(updateCount, 30);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
+                <!-- Miembro 2 -->
+                <article class="team-member-architectural">
+                    <div class="team-member-image">
+                        <img src="assets/img/jose.jpg" alt="José Rodríguez">
+                        <div class="member-overlay">
+                            <div class="overlay-content">
+                                <span class="member-number">02</span>
+                                <h3 class="member-name">JOSE RODRIGUEZ</h3>
+                                <p class="member-title">Director de Proyectos</p>                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <p class="member-description">
+                            José lidera la ejecución de proyectos con precisión y eficiencia. Su experiencia práctica y enfoque orientado a resultados garantizan que cada construcción cumpla con los más altos estándares.
+                        </p>
+                        <div class="member-contact">
+                            <a href="mailto:JoseRCNE@org.com" class="contact-link">
+                                <i class="bi bi-envelope"></i>
+                                JoseRCNE@org.com
+                            </a>
+                        </div>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Gestión</span>
+                            <span class="expertise-tag">Construcción</span>
+                            <span class="expertise-tag">Logística</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
 
-                updateCount();
-            });
-        });
-    </script>
+            <div class="team-cta">
+                <p class="cta-text">¿Interesado en unirte a nuestro equipo?</p>
+                <a href="contacto.html#trabaja-con-nosotros" class="cta-button">
+                    VER OPORTUNIDADES
+                    <svg class="arrow-icon" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- SCRIPT para marcar el menú activo según la URL -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const path = window.location.pathname.split("/").pop();
-            const navItems = document.querySelectorAll(".nav-item");
+    <!-- SECCIÓN VALORES -->
+    <section class="valores-section">
+        <div class="container-valores">
+            <div class="valores-header">
+                <h2 class="valores-title">
+                    <span class="title-number">03</span>
+                    <span class="title-text">NUESTROS<br>VALORES</span>
+                </h2>
+            </div>
 
-            navItems.forEach(link => {
-                const href = link.getAttribute("href");
-                if (href === path) {
-                    link.classList.add("active");
-                } else {
-                    link.classList.remove("active");
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <h3 class="valor-name">Excelencia</h3>
+                    <p class="valor-description">
+                        Nos comprometemos con la más alta calidad en cada detalle, desde el diseño hasta la entrega final.
+                    </p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <h3 class="valor-name">Innovación</h3>
+                    <p class="valor-description">
+                        Abrazamos nuevas tecnologías y metodologías para ofrecer soluciones arquitectónicas vanguardistas.
+                    </p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3 class="valor-name">Integridad</h3>
+                    <p class="valor-description">
+                        Actuamos con transparencia y ética en todas nuestras relaciones y proyectos.
+                    </p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h3 class="valor-name">Colaboración</h3>
+                    <p class="valor-description">
+                        Trabajamos en estrecha colaboración con clientes y socios para lograr visiones compartidas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-architectural">
+    <div class="footer-architectural-container">
+        <!-- Línea decorativa superior -->
+        <div class="footer-top-line"></div>
+
+        <!-- Contenido principal (equivalente a footer-main) -->
+        <div class="footer-architectural-main">
+            <!-- Logo -->
+            <div class="footer-architectural-brand">
+                <img src="assets/img/LogoRed.png" alt="Industrial Modern" class="footer-architectural-logo">
+                <div class="logo-underline"></div>
+            </div>
+
+            <!-- Información de contacto (equivalente a contact-info single) -->
+            <div class="footer-architectural-contact">
+                <div class="contact-architectural-line"></div>
+                <div class="contact-architectural-content">
+                    <span class="contact-label-architectural">ADDRESS</span>
+                    <p class="contact-value-architectural">123 Riverbend Rd, Creekside, TX 75001, USA</p>
+                </div>
+                <div class="contact-architectural-line"></div>
+            </div>
+
+            <!-- Redes sociales (equivalente a social-icons) -->
+            <div class="footer-architectural-social">
+                <div class="social-architectural-container">
+                    <a href="#" class="social-architectural-link" aria-label="Instagram">
+                        <div class="social-icon-wrapper">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </div>
+                    </a>
+                    <a href="#" class="social-architectural-link" aria-label="YouTube">
+                        <div class="social-icon-wrapper">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </div>
+                    </a>
+                    <a href="#" class="social-architectural-link" aria-label="Twitter">
+                        <div class="social-icon-wrapper">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </div>
+                    </a>
+                    <a href="#" class="social-architectural-link" aria-label="Facebook">
+                        <div class="social-icon-wrapper">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </div>
+                    </a>
+                    <a href="#" class="social-architectural-link" aria-label="LinkedIn">
+                        <div class="social-icon-wrapper">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea separadora -->
+        <div class="footer-architectural-divider"></div>
+
+        <!-- Copyright (equivalente a footer-bottom) -->
+        <div class="footer-architectural-bottom">
+            <div class="copyright-architectural-line"></div>
+            <p class="copyright-architectural-text">
+                COPYRIGHT © 2025 RODRIGUEZ BONILLA CONSTRUCTION CO. | DESIGN BY CREATIVE STUDIOS
+            </p>
+            <div class="copyright-architectural-line"></div>
+        </div>
+    </div>
+</footer>
+
+<!-- HEADER BG ON SCROLL -->
+<script>
+    (function() {
+        const header = document.querySelector("header");
+        if (!header) return;
+
+        function parseRGB(str) {
+            const nums = str.match(/\d+/g);
+            return nums ? nums.slice(0,3).map(Number) : [255,255,255];
+        }
+
+        function updateHeaderTextColor() {
+            const bg = getComputedStyle(header).backgroundColor;
+            const [r,g,b] = parseRGB(bg);
+            const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+            if (lum < 0.5) {
+                header.classList.add("dark-bg");
+                header.classList.remove("light-bg");
+            } else {
+                header.classList.add("light-bg");
+                header.classList.remove("dark-bg");
+            }
+        }
+
+        function onScroll() {
+            const o = Math.min(window.scrollY / 300, 0.9);
+            header.style.backgroundColor = `rgba(0,0,0,${o})`;
+            updateHeaderTextColor();
+        }
+
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+    })();
+</script>
+
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Script para contadores animados -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Contadores para las estadísticas
+        const counters = document.querySelectorAll(".stat-number");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute("data-target");
+                    const speed = 200; // Ajusta la velocidad
+
+                    const updateCount = () => {
+                        const current = +counter.innerText;
+                        const increment = Math.ceil(target / speed);
+
+                        if (current < target) {
+                            counter.innerText = current + increment;
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+
+                    updateCount();
+                    observer.unobserve(counter);
                 }
             });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            observer.observe(counter);
         });
-    </script>
+    });
+</script>
 
-    <script src="js/app.js"></script>
+<!-- SCRIPT para marcar el menú activo según la URL -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname.split("/").pop();
+        const navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === path) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+<script src="js/app.js"></script>
 </body>
-
 </html>

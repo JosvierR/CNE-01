@@ -1,250 +1,757 @@
-/* PORTFOLIO MODERNO */
+/* PORTFOLIO ARQUITECTÓNICO INDUSTRIAL PREMIUM */
 .portfolio-main {
-    padding: 80px 0;
-    background: #0a0a0a;
+    padding: clamp(80px, 10vw, 150px) 0;
+    background: #000;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Grid arquitectónico de fondo */
+.portfolio-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, rgba(255,77,90,0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,77,90,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+/* Línea decorativa superior */
+.portfolio-main::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--primary) 30%,
+        transparent 70%
+    );
+    opacity: 0.5;
+}
+
+/* Encabezado arquitectónico */
+.portfolio-header {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.portfolio-title-container {
+    flex: 1;
+}
+
+.portfolio-title-architectural {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    color: #fff;
+}
+
+.portfolio-number {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    opacity: 0.7;
+    letter-spacing: 3px;
+}
+
+.portfolio-title-text {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.portfolio-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+/* Botón de vista completa */
+.portfolio-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 16px 32px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.portfolio-view-all:hover {
+    background: var(--primary);
+    color: #000;
+    gap: 20px;
+}
+
+.portfolio-view-all svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-view-all:hover svg {
+    transform: translateX(4px);
+}
+
+/* Sistema de filtros arquitectónico */
 .portfolio-filters {
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: clamp(40px, 6vw, 80px);
+    padding: 0 40px;
+    position: relative;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.filter-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.filter-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.1),
+        rgba(255,77,90,0.3),
+        rgba(255,255,255,0.1)
+    );
 }
 
 .filter-group {
     display: flex;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .filter-btn {
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 10px 25px;
-    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 28px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255,77,90,0.1),
+        transparent
+    );
+    transition: left 0.6s ease;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
-    background: #FF4D5A;
-    border-color: #FF4D5A;
+    color: #fff;
+    border-color: var(--primary);
+    background: rgba(255, 77, 90, 0.1);
+    transform: translateY(-2px);
 }
 
+.filter-btn.active::before,
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+/* Grid de proyectos arquitectónico */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+    padding: 0 40px;
+    margin-bottom: clamp(60px, 8vw, 120px);
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* MEJORA DE PROPORCIÓN Y ESTILO DE LAS TARJETAS */
+/* Tarjeta de proyecto - Diseño escultórico */
 .project-card {
-    display: flex;
-    flex-direction: column;
-    background: #111;
-    border-radius: 16px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    border-color: var(--primary);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px var(--primary);
+}
+
+.project-card:hover::before {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
+}
+
+/* Badge de proyecto */
+.project-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: #000;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 3;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-badge {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Media del proyecto */
 .project-media {
     position: relative;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
+    background: #000;
 }
-.project-media .project-image {
+
+.project-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.project-card:hover .project-image {
-    transform: scale(1.05);
+    object-position: center;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.1);
+    filter: brightness(0.9);
 }
 
+.project-card:hover .project-image {
+    transform: scale(1);
+    filter: brightness(1);
+}
+
+.project-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.project-card:hover .project-media::after {
+    opacity: 1;
+}
+
+/* Overlay arquitectónico */
 .project-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    /* Si prefieres degradado:
-       background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-    */
+    padding: 30px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        transparent 100%
+    );
+    z-index: 2;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.overlay-content {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.overlay-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.overlay-title {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #fff;
-    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
 }
 
-.project-title {
-    color: #fff;
-    margin-bottom: 5px;
-    font-size: 1.4rem;
-}
-
-.project-status {
-    color: #FF4D5A;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
+/* Información del proyecto */
 .project-info {
-    flex: 1;
-    padding: 20px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-meta {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .project-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    font-size: 1rem;
+    font-weight: 300;
     flex: 1;
-    margin: 0 0 15px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #aaa;
 }
 
+/* Botón de detalles arquitectónico */
 .project-details {
-    align-self: flex-start;
-    background: #FF4D5A;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 14px 32px;
     font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
-.project-details:hover {
-    background: #e63946;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    align-self: flex-start;
 }
 
+.project-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.project-details:hover {
+    color: #000;
+    padding-right: 40px;
+}
+
+.project-details:hover::before {
+    left: 0;
+}
+
+.project-details svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.project-details:hover svg {
+    transform: translateX(4px);
+}
+
+/* Paginación arquitectónica */
 .pagination-modern {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 40px;
+    align-items: center;
+    gap: 15px;
+    margin-top: clamp(60px, 8vw, 120px);
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 40px;
 }
 
 .page-prev,
 .page-next {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-prev:hover,
 .page-next:hover {
-    background: #FF4D5A;
-    border-color: #FF4D5A;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateX(-2px);
 }
 
+.page-next:hover {
+    transform: translateX(2px);
+}
+
+.page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+.page-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.page-number.active {
+    background: rgba(255, 77, 90, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(255, 77, 90, 0.3);
+}
+
+.page-number:hover:not(.active) {
+    color: var(--primary);
+    border: 1px solid rgba(255, 77, 90, 0.2);
+}
+
+/* Modal arquitectónico */
 .modern-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.95);
     display: none;
-    z-index: 1000;
+    z-index: 3000;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modern-modal.active {
-    display: block;
-    animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
 }
 
 .modal-container {
     max-width: 1200px;
-    margin: 50px auto;
-    background: #111;
-    border-radius: 16px;
+    width: 90%;
+    background: rgba(25, 25, 25, 0.98);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    position: relative;
+    transform: translateY(40px) scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-modal.active .modal-container {
+    transform: translateY(0) scale(1);
 }
 
 .modal-close {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: transparent;
-    border: none;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
-}
-
-.modal-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 40px;
-}
-
-.modal-main-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.modal-info {
-    color: #fff;
-}
-
-.modal-title {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.modal-meta {
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    color: #FF4D5A;
+    align-items: center;
+    justify-content: center;
 }
 
-.modal-description {
-    color: #ddd;
-    line-height: 1.6;
+.modal-close:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: rotate(90deg);
 }
 
-.tech-tags {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+/* RESPONSIVE ARQUITECTÓNICO */
+@media (max-width: 1200px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .portfolio-header,
+    .portfolio-filters,
+    .projects-container,
+    .pagination-modern {
+        padding: 0 30px;
+    }
+
+    .project-media {
+        height: 280px;
+    }
 }
 
 @media (max-width: 768px) {
-    .projects-container {
-        grid-template-columns: 1fr;
+    .portfolio-main {
+        padding: 60px 0;
     }
 
-    .modal-content {
+    .projects-container {
         grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .portfolio-title-architectural {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .portfolio-number {
+        margin-bottom: 10px;
+    }
+
+    .filter-group {
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .project-media {
+        height: 300px;
+    }
+
+    .modal-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-header,
+    .portfolio-filters,
+    .projects-container,
+    .pagination-modern {
+        padding: 0 20px;
+    }
+
+    .portfolio-title-text {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
+    .project-media {
+        height: 250px;
+    }
+
+    .project-info {
         padding: 20px;
     }
 
-    .modal-main-image {
-        height: 300px;
+    .project-meta {
+        flex-direction: column;
+        gap: 10px;
     }
+
+    .project-details {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pagination-modern {
+        flex-wrap: wrap;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+@keyframes projectCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.project-card {
+    animation: projectCardEnter 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+/* Retrasos escalonados para las tarjetas */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Optimización de rendimiento */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .filter-btn,
+    .page-prev,
+    .page-next,
+    .project-details,
+    .modal-close,
+    .modal-container {
+        transition: none;
+        animation: none;
+    }
+
+    .project-card {
+        animation: none;
+        opacity: 1;
+    }
+
+    .project-image {
+        transition: none;
+    }
+}
+
+/* Estados de foco para accesibilidad */
+.filter-btn:focus-visible,
+.project-details:focus-visible,
+.page-prev:focus-visible,
+.page-next:focus-visible,
+.modal-close:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Lazy loading de imágenes */
+.project-image {
+    content-visibility: auto;
+}
+
+/* Prevenir flashes en navegadores WebKit */
+.project-card {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
