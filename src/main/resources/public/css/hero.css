@@ -76,7 +76,7 @@
 }
 
 .hero-architectural-title {
-    font-size: clamp(4rem, 12vw, 10rem);
+    font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 900;
     letter-spacing: -4px;
     line-height: 0.85;
